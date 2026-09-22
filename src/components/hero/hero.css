@@ -1,16 +1,10 @@
 /**
- * Asymmetric Editorial Hero Styles
- * Laxmikrupa Emporium
+ * Hero CSS matching Design Mockup
  */
 
-.editorial-hero {
+.mockup-hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: calc(var(--header-height-desktop) + var(--hero-top-spacing-desktop));
+  padding-top: calc(var(--header-height-desktop) + var(--space-10));
   padding-bottom: var(--space-16);
   background-color: var(--canvas-primary);
   border-bottom: 1px solid var(--border-hairline);
@@ -18,258 +12,289 @@
 }
 
 @media (max-width: 768px) {
-  .editorial-hero {
-    padding-top: calc(var(--header-height-mobile) + var(--hero-top-spacing-mobile));
+  .mockup-hero {
+    padding-top: calc(var(--header-height-mobile) + var(--space-6));
     padding-bottom: var(--space-10);
   }
 }
 
-/* Multi-Axis Asymmetric Editorial Grid */
-.editorial-hero__grid {
+.mockup-hero__container {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.15fr) minmax(0, 0.7fr);
-  gap: var(--space-8);
-  align-items: end;
+  grid-template-columns: 1.15fr 1.25fr;
+  gap: var(--space-12);
+  align-items: center;
 }
 
-@media (max-width: 1200px) {
-  .editorial-hero__grid {
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
-    gap: var(--space-8);
-  }
-}
-
-@media (max-width: 900px) {
-  .editorial-hero__grid {
+@media (max-width: 1040px) {
+  .mockup-hero__container {
     grid-template-columns: 1fr;
     gap: var(--space-8);
   }
 }
 
-/* Left Column: Typographic & Action Block */
-.editorial-hero__content {
+/* Left Column */
+.mockup-hero__left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding-right: var(--space-4);
-  gap: var(--space-6);
+  gap: var(--space-5);
+  max-width: 560px;
 }
 
-.editorial-hero__header-group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.editorial-hero__headline {
-  font-family: var(--font-display);
-  font-size: var(--font-size-hero);
-  line-height: var(--leading-hero);
-  font-weight: 400;
-  color: var(--text-primary);
-  letter-spacing: var(--tracking-tight);
-  max-width: 16ch;
-}
-
-.editorial-hero__headline em {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-}
-
-.editorial-hero__narrative {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-body-lg);
-  line-height: var(--leading-relaxed);
-  color: var(--text-secondary);
-  max-width: 40ch;
-}
-
-.editorial-hero__actions {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-4);
-  padding-top: var(--space-2);
-}
-
-.editorial-hero__group-cta {
+.mockup-hero__eyebrow-strip {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  color: #1E6B3A;
-  border-color: rgba(45, 106, 79, 0.35);
-}
-
-.editorial-hero__group-cta:hover {
-  background-color: rgba(45, 106, 79, 0.06);
-  border-color: #1E6B3A;
-  color: #144926;
-}
-
-/* Spec Footer Strip in Content Block */
-.editorial-hero__spec-strip {
-  margin-top: var(--space-6);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--border-hairline);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
-}
-
-.editorial-hero__spec-item {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.editorial-hero__spec-label {
-  font-family: var(--font-sans);
+  gap: var(--space-3);
+  font-family: var(--font-mono);
   font-size: var(--font-size-micro);
-  letter-spacing: var(--tracking-micro);
+  letter-spacing: var(--tracking-loose);
   text-transform: uppercase;
   color: var(--text-tertiary);
 }
 
-.editorial-hero__spec-value {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-body-sm);
+.mockup-hero__number {
+  color: var(--text-gold);
+  font-weight: 600;
+}
+
+.mockup-hero__line {
+  width: 28px;
+  height: 1px;
+  background-color: var(--text-gold);
+}
+
+.mockup-hero__headline {
+  font-family: var(--font-display);
+  font-size: var(--font-size-hero);
+  line-height: var(--leading-hero);
+  font-weight: 500;
+  letter-spacing: var(--tracking-tight);
   color: var(--text-primary);
 }
 
-/* Center Column: Primary Campaign Visual */
-.editorial-hero__visual-frame {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 4;
+.mockup-hero__headline span {
+  font-style: italic;
+  font-weight: 400;
+  color: #8C5D23;
+}
+
+.mockup-hero__description {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+}
+
+/* Dark Espresso Action Box matching mockup */
+.mockup-hero__cta-box {
+  background-color: var(--surface-espresso);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  border-radius: var(--radius-subtle);
   overflow: hidden;
-  background-color: var(--canvas-secondary);
-  border-radius: var(--radius-subtle);
-  border: 1px solid var(--border-hairline);
+  transition: 
+    border-color var(--duration-fast) var(--ease-editorial),
+    transform var(--duration-fast) var(--ease-editorial),
+    box-shadow var(--duration-fast) var(--ease-editorial);
 }
 
-.editorial-hero__campaign-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  transition: transform var(--duration-slow) var(--ease-editorial);
+.mockup-hero__cta-box:hover {
+  border-color: var(--text-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26, 18, 11, 0.15);
 }
 
-.editorial-hero__visual-frame:hover .editorial-hero__campaign-image {
-  transform: scale(1.025);
-}
-
-.editorial-hero__campaign-tag {
-  position: absolute;
-  bottom: var(--space-4);
-  left: var(--space-4);
-  background-color: var(--surface-overlay);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--border-hairline);
-  border-radius: var(--radius-subtle);
+.mockup-hero__cta-box-inner {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  text-decoration: none;
+  gap: var(--space-3);
+}
+
+.mockup-hero__cta-box-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mockup-hero__cta-box-label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-gold);
+}
+
+.mockup-hero__cta-box-title {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  color: var(--canvas-primary);
+}
+
+.mockup-hero__cta-box-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(212, 160, 23, 0.15);
+  color: var(--text-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 
+    background-color var(--duration-fast) var(--ease-editorial),
+    transform var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-hero__cta-box:hover .mockup-hero__cta-box-arrow {
+  background-color: var(--text-gold);
+  color: var(--surface-espresso);
+  transform: translateX(2px) translateY(-2px);
+}
+
+/* Secondary Link */
+.mockup-hero__secondary-link-wrap {
+  padding-top: var(--space-1);
+}
+
+.mockup-hero__secondary-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-hero__secondary-link svg {
+  transition: transform var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-hero__secondary-link:hover {
+  color: var(--text-gold);
+}
+
+.mockup-hero__secondary-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* Right Column: 2 Visuals Side-by-Side */
+.mockup-hero__right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  align-items: stretch;
+}
+
+@media (max-width: 600px) {
+  .mockup-hero__right {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mockup-hero__photo-card {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-2);
 }
 
-.editorial-hero__tag-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--status-in-stock);
-}
-
-.editorial-hero__tag-text {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-micro);
-  letter-spacing: var(--tracking-wide);
-  color: var(--text-primary);
-  text-transform: uppercase;
-}
-
-/* Right / Offset Column: Tactile Macro Inset */
-.editorial-hero__inset-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: var(--space-4);
-}
-
-@media (max-width: 1200px) {
-  .editorial-hero__inset-column {
-    grid-column: span 2;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--border-hairline);
-  }
-}
-
-@media (max-width: 900px) {
-  .editorial-hero__inset-column {
-    grid-column: 1 / -1;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-.editorial-hero__macro-card {
-  background-color: var(--surface-elevated);
-  border: 1px solid var(--border-hairline);
-  border-radius: var(--radius-subtle);
-  padding: var(--space-4);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+.mockup-hero__photo-frame {
   width: 100%;
-}
-
-@media (max-width: 1200px) and (min-width: 901px) {
-  .editorial-hero__macro-card {
-    max-width: 320px;
-  }
-}
-
-.editorial-hero__macro-frame {
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   border-radius: var(--radius-subtle);
   border: 1px solid var(--border-hairline);
-  background-color: var(--surface-inverse);
+  background-color: var(--canvas-secondary);
 }
 
-.editorial-hero__macro-image {
+.mockup-hero__photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--duration-slow) var(--ease-editorial);
+  transition: transform 700ms var(--ease-editorial);
+  will-change: transform;
 }
 
-.editorial-hero__macro-card:hover .editorial-hero__macro-image {
-  transform: scale(1.08);
+.mockup-hero__photo-card:hover .mockup-hero__photo {
+  transform: scale(1.035);
 }
 
-.editorial-hero__macro-meta {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.editorial-hero__macro-title {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-body-sm);
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.editorial-hero__macro-desc {
+.mockup-hero__photo-caption {
   font-family: var(--font-mono);
-  font-size: var(--font-size-micro);
-  color: var(--text-secondary);
-  line-height: var(--leading-normal);
+  font-size: 0.6875rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Entrance Animations */
+.hero-anim-1,
+.hero-anim-2,
+.hero-anim-3,
+.hero-anim-4,
+.hero-anim-5,
+.hero-anim-visual {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 
+    opacity 650ms var(--ease-editorial),
+    transform 650ms var(--ease-editorial);
+}
+
+.mockup-hero--loaded .hero-anim-1 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 80ms;
+}
+
+.mockup-hero--loaded .hero-anim-2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 180ms;
+}
+
+.mockup-hero--loaded .hero-anim-3 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 300ms;
+}
+
+.mockup-hero--loaded .hero-anim-4 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 440ms;
+}
+
+.mockup-hero--loaded .hero-anim-5 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 560ms;
+}
+
+.mockup-hero--loaded .hero-anim-visual {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 
+    opacity 900ms var(--ease-editorial),
+    transform 900ms var(--ease-editorial);
+  transition-delay: 200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim-1,
+  .hero-anim-2,
+  .hero-anim-3,
+  .hero-anim-4,
+  .hero-anim-5,
+  .hero-anim-visual,
+  .mockup-hero__photo {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }

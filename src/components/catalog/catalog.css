@@ -1,0 +1,377 @@
+/**
+ * Catalog Section & Cards CSS matching Mockup
+ */
+
+.mockup-catalog {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+  background-color: var(--canvas-secondary);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+@media (max-width: 768px) {
+  .mockup-catalog {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+}
+
+.mockup-catalog__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-12);
+}
+
+.mockup-catalog__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-micro);
+  letter-spacing: var(--tracking-loose);
+  color: var(--text-gold);
+  text-transform: uppercase;
+}
+
+.mockup-catalog__title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-h2);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.mockup-catalog__subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  color: var(--text-secondary);
+  max-width: 52ch;
+}
+
+/* Filter Pills matching Mockup */
+.mockup-catalog__filter-pills {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+.mockup-catalog__pill {
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--surface-panel);
+  border: 1px solid var(--border-hairline-strong);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-micro);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  transition: 
+    background-color var(--duration-fast) var(--ease-editorial),
+    color var(--duration-fast) var(--ease-editorial),
+    border-color var(--duration-fast) var(--ease-editorial),
+    transform var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-catalog__pill:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.mockup-catalog__pill--active {
+  background-color: var(--surface-espresso);
+  color: var(--canvas-primary);
+  border-color: var(--surface-espresso);
+}
+
+.mockup-catalog__pill-count {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  opacity: 0.7;
+}
+
+/* 3-Column Grid matching Mockup */
+.mockup-catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+@media (max-width: 1040px) {
+  .mockup-catalog__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 640px) {
+  .mockup-catalog__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* Catalog Card */
+.mockup-catalog-card {
+  background-color: var(--surface-panel);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(26, 18, 11, 0.03);
+  transition: 
+    border-color var(--duration-normal) var(--ease-editorial),
+    transform var(--duration-normal) var(--ease-editorial),
+    box-shadow var(--duration-normal) var(--ease-editorial);
+  outline: none;
+}
+
+.mockup-catalog-card:hover {
+  border-color: var(--border-hairline-interactive);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(26, 18, 11, 0.08);
+}
+
+/* Image Frame */
+.mockup-catalog-card__image-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 3.8;
+  overflow: hidden;
+  background-color: var(--canvas-primary);
+}
+
+.mockup-catalog-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 700ms var(--ease-editorial);
+  will-change: transform;
+}
+
+.mockup-catalog-card:hover .mockup-catalog-card__image {
+  transform: scale(1.04);
+}
+
+.mockup-catalog-card__wishlist-btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(249, 249, 248, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  z-index: 2;
+  transition: 
+    transform var(--duration-fast) var(--ease-editorial),
+    color var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-catalog-card__wishlist-btn:hover {
+  transform: scale(1.1);
+  color: var(--color-accent-gold);
+}
+
+.mockup-catalog-card__wishlist-btn--active {
+  color: var(--color-accent-gold);
+  border-color: rgba(184, 134, 11, 0.4);
+}
+
+.mockup-catalog-card__badge {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  background-color: rgba(26, 18, 11, 0.88);
+  color: #FFFFFF;
+  backdrop-filter: blur(6px);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* Card Body */
+.mockup-catalog-card__body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+/* Swatches Below Image */
+.mockup-catalog-card__swatches {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.mockup-catalog-card__swatch-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mockup-catalog-card__swatch-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--border-hairline-strong);
+  padding: 0;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-catalog-card__swatch-dot:hover {
+  transform: scale(1.2);
+}
+
+.mockup-catalog-card__swatch-dot--active {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 1px;
+}
+
+.mockup-catalog-card__color-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+}
+
+.mockup-catalog-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mockup-catalog-card__category {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-gold);
+  font-weight: 500;
+}
+
+.mockup-catalog-card__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-catalog-card__title:hover {
+  color: var(--text-gold);
+}
+
+.mockup-catalog-card__price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: var(--space-1);
+}
+
+.mockup-catalog-card__price {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mockup-catalog-card__sizes {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Two Action Buttons matching Mockup */
+.mockup-catalog-card__actions {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+.mockup-catalog-card__btn-quickview {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: 0.55rem 0.5rem;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-hairline-strong);
+  border-radius: var(--radius-subtle);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-micro);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 
+    background-color var(--duration-fast) var(--ease-editorial),
+    color var(--duration-fast) var(--ease-editorial),
+    border-color var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-catalog-card__btn-quickview:hover {
+  border-color: var(--text-primary);
+  background-color: rgba(26, 18, 11, 0.04);
+}
+
+.mockup-catalog-card__btn-inquire {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: 0.55rem 0.5rem;
+  background-color: var(--surface-espresso);
+  color: var(--canvas-primary);
+  border: 1px solid var(--surface-espresso);
+  border-radius: var(--radius-subtle);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-micro);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 
+    background-color var(--duration-fast) var(--ease-editorial),
+    transform var(--duration-fast) var(--ease-editorial),
+    box-shadow var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-catalog-card__btn-inquire:hover {
+  background-color: #2D1E12;
+  box-shadow: 0 4px 12px rgba(26, 18, 11, 0.18);
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mockup-catalog-card,
+  .mockup-catalog-card__image {
+    transition: none !important;
+    transform: none !important;
+  }
+}

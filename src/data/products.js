@@ -22,7 +22,7 @@ export const DEMO_PRODUCTS = [
     sizeRangeLabel: 'Men: 36 to 50',
     stockStatus: 'In Stock',
     groupOrderAvailable: true,
-    image: '/assets/images/hero_campaign.jpg',
+    image: '/assets/images/ethnic_wear_category.jpg',
     thumbnail: '/assets/images/fabric_macro.jpg',
   },
   {
@@ -60,7 +60,7 @@ export const DEMO_PRODUCTS = [
     sizeRangeLabel: 'Men: 36 to 50',
     stockStatus: 'In Stock',
     groupOrderAvailable: true,
-    image: '/assets/images/hero_campaign.jpg',
+    image: '/assets/images/festive_group_category.jpg',
     thumbnail: '/assets/images/fabric_macro.jpg',
   },
   {
@@ -79,7 +79,7 @@ export const DEMO_PRODUCTS = [
     sizeRangeLabel: 'Boys: 20 to 30',
     stockStatus: 'In Stock',
     groupOrderAvailable: true,
-    image: '/assets/images/hero_campaign.jpg',
+    image: '/assets/images/ethnic_wear_category.jpg',
     thumbnail: '/assets/images/fabric_macro.jpg',
   },
   {
@@ -98,7 +98,7 @@ export const DEMO_PRODUCTS = [
     sizeRangeLabel: 'Sizes: M to XXL',
     stockStatus: 'In Stock',
     groupOrderAvailable: false,
-    image: '/assets/images/hero_campaign.jpg',
+    image: '/assets/images/shirts_casuals_category.jpg',
     thumbnail: '/assets/images/fabric_macro.jpg',
   },
   {
@@ -117,7 +117,7 @@ export const DEMO_PRODUCTS = [
     sizeRangeLabel: 'Sizes: M to XXL',
     stockStatus: 'In Stock',
     groupOrderAvailable: false,
-    image: '/assets/images/hero_campaign.jpg',
+    image: '/assets/images/shirts_casuals_category.jpg',
     thumbnail: '/assets/images/fabric_macro.jpg',
   },
   {
@@ -136,7 +136,7 @@ export const DEMO_PRODUCTS = [
     sizeRangeLabel: 'Waist: 30 to 40',
     stockStatus: 'In Stock',
     groupOrderAvailable: false,
-    image: '/assets/images/hero_campaign.jpg',
+    image: '/assets/images/shirts_casuals_category.jpg',
     thumbnail: '/assets/images/fabric_macro.jpg',
   },
   {
@@ -156,7 +156,7 @@ export const DEMO_PRODUCTS = [
     sizeRangeLabel: 'Bulk Runs: 32 to 50',
     stockStatus: 'Available for Bulk Inquiry',
     groupOrderAvailable: true,
-    image: '/assets/images/hero_campaign.jpg',
+    image: '/assets/images/festive_group_category.jpg',
     thumbnail: '/assets/images/fabric_macro.jpg',
   },
   {
@@ -174,7 +174,8 @@ export const DEMO_PRODUCTS = [
     sizeRangeLabel: 'Sizes: S to XXL & Kids',
     stockStatus: 'In Stock',
     groupOrderAvailable: true,
-    image: '/assets/images/hero_campaign.jpg',
+    image: '/assets/images/festive_group_category.jpg',
     thumbnail: '/assets/images/fabric_macro.jpg',
   },
 ];
+

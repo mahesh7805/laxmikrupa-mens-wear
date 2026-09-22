@@ -5,12 +5,15 @@ import {
   PaperPlaneTilt,
   MapPin,
   Clock,
-  ArrowUpRight,
-  ChatCircleDots,
+  Phone,
+  ArrowRight,
 } from '@phosphor-icons/react';
 import './contact.css';
 
 export const ContactSection = () => {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [inquiryType, setInquiryType] = useState('Festive & Group Order');
   const [message, setMessage] = useState('');
   const [selectedTopic, setSelectedTopic] = useState('');
 
@@ -23,14 +26,13 @@ export const ContactSection = () => {
 
   const INSTAGRAM_HANDLE = 'laxmi_krupa.541';
   const INSTAGRAM_PROFILE_URL = 'https://www.instagram.com/laxmi_krupa.541/';
-  const INSTAGRAM_DM_URL = 'https://ig.me/m/laxmi_krupa.541';
 
   // Quick inquiry templates
   const topics = [
-    { label: 'Festive / Group Kurtas', text: 'Hello Laxmikrupa Emporium, I would like to inquire about festive group kurtas for an upcoming event.' },
-    { label: 'Wholesale / Bulk Order', text: 'Hello, I am interested in placing a wholesale / bulk order for your ethnic kurta collection.' },
-    { label: 'Size & Stock Availability', text: 'Hello, I want to check size availability for your festive kurta sets.' },
-    { label: 'Store Visit / Location', text: 'Hello, I plan to visit your Surat store and would like to confirm store hours and location details.' },
+    { label: 'Festive Group Kurta', text: 'Inquiring about group kurtas for an upcoming festive celebration.' },
+    { label: 'Wholesale / Bulk', text: 'Interested in placing a wholesale order for retail kurtas.' },
+    { label: 'Size & Stock Availability', text: 'Checking size availability for festive kurta sets.' },
+    { label: 'Store Visit Hours', text: 'Planning to visit your Surat store this week.' },
   ];
 
   const handleSelectTopic = (topic) => {
@@ -43,222 +45,215 @@ export const ContactSection = () => {
     }
   };
 
-  // Safe URL encoding for WhatsApp links
-  const defaultText = 'Hello Laxmikrupa Emporium, I am browsing your online collection and have an inquiry.';
-  const messageToSend = message.trim() || defaultText;
-  const encodedText = encodeURIComponent(messageToSend);
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const customerName = name.trim() || 'Valued Customer';
+    const customerPhone = phone.trim() || 'Not Provided';
+    const customerMsg = message.trim() || 'I would like to inquire about your collection.';
 
-  const waLine1Link = `https://wa.me/${WA_LINE_1}?text=${encodedText}`;
-  const waLine2Link = `https://wa.me/${WA_LINE_2}?text=${encodedText}`;
+    const formattedMsg = `Hello Laxmikrupa Emporium,
+
+*New Website Inquiry:*
+• *Name:* ${customerName}
+• *Phone:* ${customerPhone}
+• *Category:* ${inquiryType}
+
+*Message:*
+${customerMsg}`;
+
+    const waUrl = `https://wa.me/${WA_LINE_1}?text=${encodeURIComponent(formattedMsg)}`;
+    window.open(waUrl, '_blank');
+  };
 
   return (
-    <section id="contact-us" className="editorial-contact" aria-label="Contact and Inquiries">
+    <section id="contact" className="mockup-contact reveal-on-scroll" aria-label="Contact and Inquiries">
       <div className="editorial-container">
-        {/* Section Header */}
-        <div className="editorial-contact__header">
-          <span className="editorial-micro-label">
-            DIRECT ASSISTANCE // SURAT STORE
-          </span>
-          <h2 className="editorial-contact__title">
-            Connect With Laxmikrupa
-          </h2>
-          <p className="editorial-contact__subtitle">
-            Draft a message to connect instantly via WhatsApp, or reach out to our Surat team directly for retail and bulk event orders.
-          </p>
-        </div>
-
-        <div className="editorial-contact__layout">
-          {/* Left Column: Interactive Message Composer */}
-          <div className="editorial-contact__composer-card">
-            <div className="editorial-contact__composer-heading">
-              <span className="editorial-contact__composer-title">Compose Your Inquiry</span>
-              <span className="editorial-contact__composer-desc">
-                Type your message below and choose your preferred destination.
-              </span>
+        
+        <div className="mockup-contact__grid">
+          
+          {/* Left Column: Direct Reach Out */}
+          <div className="mockup-contact__left">
+            <div className="editorial-micro-label editorial-micro-label--mono">
+              05 — GET IN TOUCH
             </div>
+            
+            <h2 className="mockup-contact__title">
+              Let's Stay Connected.
+            </h2>
+            
+            <p className="mockup-contact__desc">
+              Have questions about sizes, fabric availability, or custom group orders? Reach out directly to our Surat team.
+            </p>
 
-            {/* Quick Topic Chips */}
-            <div className="editorial-contact__topic-chips" role="group" aria-label="Common inquiry topics">
-              {topics.map((t) => (
-                <button
-                  key={t.label}
-                  type="button"
-                  className={`editorial-contact__chip ${
-                    selectedTopic === t.label ? 'editorial-contact__chip--active' : ''
-                  }`}
-                  onClick={() => handleSelectTopic(t)}
-                >
-                  {t.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Text Area */}
-            <div className="editorial-contact__textarea-wrapper">
-              <label htmlFor="inquiry-message" className="editorial-contact__textarea-label">
-                Your Message
-              </label>
-              <textarea
-                id="inquiry-message"
-                className="editorial-contact__textarea"
-                placeholder="Type your question about kurtas, group orders, colors, sizes, or wholesale..."
-                value={message}
-                onChange={(e) => {
-                  setMessage(e.target.value);
-                  setSelectedTopic('');
-                }}
-                rows={4}
-              />
-            </div>
-
-            {/* 3 Send Options Destinations */}
-            <div className="editorial-contact__send-group">
-              <span className="editorial-contact__send-label">
-                Send Message Directly To:
-              </span>
-
-              <div className="editorial-contact__destinations">
-                {/* Destination 1: WhatsApp Line 1 */}
-                <a
-                  href={waLine1Link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="editorial-contact__send-btn editorial-contact__send-btn--wa1"
-                  aria-label="Send message to WhatsApp Line 1"
-                >
-                  <WhatsappLogo size={24} weight="fill" />
-                  <span className="editorial-contact__send-btn-title">WhatsApp Line 1</span>
-                  <span className="editorial-contact__send-btn-sub">{WA_LINE_1_FORMATTED}</span>
-                </a>
-
-                {/* Destination 2: WhatsApp Line 2 */}
-                <a
-                  href={waLine2Link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="editorial-contact__send-btn editorial-contact__send-btn--wa2"
-                  aria-label="Send message to WhatsApp Line 2"
-                >
-                  <WhatsappLogo size={24} weight="fill" />
-                  <span className="editorial-contact__send-btn-title">WhatsApp Line 2</span>
-                  <span className="editorial-contact__send-btn-sub">{WA_LINE_2_FORMATTED}</span>
-                </a>
-
-                {/* Destination 3: Instagram DM */}
-                <a
-                  href={INSTAGRAM_DM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="editorial-contact__send-btn editorial-contact__send-btn--ig"
-                  aria-label="Send message via Instagram Direct Message"
-                >
-                  <InstagramLogo size={24} weight="fill" />
-                  <span className="editorial-contact__send-btn-title">Instagram DM</span>
-                  <span className="editorial-contact__send-btn-sub">@{INSTAGRAM_HANDLE}</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Direct Fallback Channels & Store Info */}
-          <div className="editorial-contact__info-card">
-            <div className="editorial-contact__info-heading">
-              <span className="editorial-contact__info-title">Direct Reach Out</span>
-              <span className="editorial-contact__info-desc">
-                Prefer to chat or call immediately without drafting? Click any channel below.
-              </span>
-            </div>
-
-            {/* Direct Contact List with Clickable Brand Icons */}
-            <div className="editorial-contact__channel-list">
-              {/* Channel 1: WhatsApp Primary */}
+            {/* Direct Channel Cards matching Mockup */}
+            <div className="mockup-contact__channels">
+              {/* Channel 1: Primary WhatsApp */}
               <a
                 href={`https://wa.me/${WA_LINE_1}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="editorial-contact__channel-item"
-                aria-label={`Direct WhatsApp chat with ${WA_LINE_1_FORMATTED}`}
+                className="mockup-contact__channel-card"
+                aria-label={`WhatsApp Primary ${WA_LINE_1_FORMATTED}`}
               >
-                <div className="editorial-contact__channel-left">
-                  <div className="editorial-contact__channel-icon editorial-contact__channel-icon--wa">
-                    <WhatsappLogo size={20} weight="fill" />
-                  </div>
-                  <div className="editorial-contact__channel-details">
-                    <span className="editorial-contact__channel-name">Primary Store Line</span>
-                    <span className="editorial-contact__channel-meta">{WA_LINE_1_FORMATTED}</span>
-                  </div>
+                <div className="mockup-contact__channel-icon mockup-contact__channel-icon--wa">
+                  <WhatsappLogo size={22} weight="fill" />
                 </div>
-                <div className="editorial-contact__channel-badge">
-                  <span>Chat Direct ↗</span>
+                <div className="mockup-contact__channel-info">
+                  <span className="mockup-contact__channel-title">WhatsApp Primary Line</span>
+                  <span className="mockup-contact__channel-value">{WA_LINE_1_FORMATTED}</span>
                 </div>
+                <span className="mockup-contact__channel-arrow">Chat ↗</span>
               </a>
 
-              {/* Channel 2: WhatsApp Secondary */}
+              {/* Channel 2: Wholesale WhatsApp */}
               <a
                 href={`https://wa.me/${WA_LINE_2}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="editorial-contact__channel-item"
-                aria-label={`Direct WhatsApp chat with ${WA_LINE_2_FORMATTED}`}
+                className="mockup-contact__channel-card"
+                aria-label={`WhatsApp Wholesale ${WA_LINE_2_FORMATTED}`}
               >
-                <div className="editorial-contact__channel-left">
-                  <div className="editorial-contact__channel-icon editorial-contact__channel-icon--wa">
-                    <WhatsappLogo size={20} weight="fill" />
-                  </div>
-                  <div className="editorial-contact__channel-details">
-                    <span className="editorial-contact__channel-name">Wholesale &amp; Orders</span>
-                    <span className="editorial-contact__channel-meta">{WA_LINE_2_FORMATTED}</span>
-                  </div>
+                <div className="mockup-contact__channel-icon mockup-contact__channel-icon--wa">
+                  <WhatsappLogo size={22} weight="fill" />
                 </div>
-                <div className="editorial-contact__channel-badge">
-                  <span>Chat Direct ↗</span>
+                <div className="mockup-contact__channel-info">
+                  <span className="mockup-contact__channel-title">Wholesale &amp; Bulk Orders</span>
+                  <span className="mockup-contact__channel-value">{WA_LINE_2_FORMATTED}</span>
                 </div>
+                <span className="mockup-contact__channel-arrow">Chat ↗</span>
               </a>
 
-              {/* Channel 3: Instagram Direct Profile */}
+              {/* Channel 3: Instagram */}
               <a
                 href={INSTAGRAM_PROFILE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="editorial-contact__channel-item"
-                aria-label={`Visit official Instagram page @${INSTAGRAM_HANDLE}`}
+                className="mockup-contact__channel-card"
+                aria-label={`Instagram Profile @${INSTAGRAM_HANDLE}`}
               >
-                <div className="editorial-contact__channel-left">
-                  <div className="editorial-contact__channel-icon editorial-contact__channel-icon--ig">
-                    <InstagramLogo size={20} weight="fill" />
-                  </div>
-                  <div className="editorial-contact__channel-details">
-                    <span className="editorial-contact__channel-name">Official Instagram</span>
-                    <span className="editorial-contact__channel-meta">@{INSTAGRAM_HANDLE}</span>
-                  </div>
+                <div className="mockup-contact__channel-icon mockup-contact__channel-icon--ig">
+                  <InstagramLogo size={22} weight="fill" />
                 </div>
-                <div className="editorial-contact__channel-badge">
-                  <span>Open App ↗</span>
+                <div className="mockup-contact__channel-info">
+                  <span className="mockup-contact__channel-title">Official Instagram</span>
+                  <span className="mockup-contact__channel-value">@{INSTAGRAM_HANDLE}</span>
                 </div>
+                <span className="mockup-contact__channel-arrow">Open ↗</span>
               </a>
             </div>
-
-            {/* Store Physical Location Details */}
-            <div className="editorial-contact__location-strip">
-              <div className="editorial-contact__location-item">
-                <MapPin size={20} weight="regular" className="text-secondary" />
-                <div className="editorial-contact__location-text">
-                  <strong>Store Location</strong>
-                  Cinema Road / Station Road Area, Surat, Gujarat, India
-                </div>
-              </div>
-
-              <div className="editorial-contact__location-item">
-                <Clock size={20} weight="regular" className="text-secondary" />
-                <div className="editorial-contact__location-text">
-                  <strong>Store Hours</strong>
-                  Monday – Sunday: 10:00 AM – 9:00 PM IST
-                </div>
-              </div>
-            </div>
-
           </div>
+
+          {/* Right Column: Send Us A Direct Message Form matching Mockup */}
+          <div className="mockup-contact__right">
+            <div className="mockup-contact__form-card">
+              <h3 className="mockup-contact__form-title">
+                Send Us A Direct Message
+              </h3>
+              <p className="mockup-contact__form-desc">
+                Fill your details to start an instant inquiry directly on WhatsApp.
+              </p>
+
+              <form onSubmit={handleFormSubmit} className="mockup-contact__form">
+                
+                <div className="mockup-contact__form-row">
+                  <div className="mockup-contact__field">
+                    <label htmlFor="contact-name" className="mockup-contact__label">
+                      Your Name
+                    </label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      className="mockup-contact__input"
+                      placeholder="e.g. Rajesh Shah"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className="mockup-contact__field">
+                    <label htmlFor="contact-phone" className="mockup-contact__label">
+                      WhatsApp Number
+                    </label>
+                    <input
+                      id="contact-phone"
+                      type="tel"
+                      className="mockup-contact__input"
+                      placeholder="e.g. +91 98765 43210"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="mockup-contact__field">
+                  <label htmlFor="contact-inquiry-type" className="mockup-contact__label">
+                    Inquiry Category
+                  </label>
+                  <select
+                    id="contact-inquiry-type"
+                    className="mockup-contact__select"
+                    value={inquiryType}
+                    onChange={(e) => setInquiryType(e.target.value)}
+                  >
+                    <option value="Festive & Group Order">Festive &amp; Group Orders (Baraat / Mandali)</option>
+                    <option value="Ethnic Wear Retail">Solid / Designer Ethnic Kurtas</option>
+                    <option value="Casual Shirts & Trousers">Casual Shirts &amp; Trousers</option>
+                    <option value="Wholesale Inquiry">Wholesale Run Inquiry</option>
+                    <option value="Store Visit">Surat Store Visit Assistance</option>
+                  </select>
+                </div>
+
+                {/* Quick Topic Chips */}
+                <div className="mockup-contact__topic-chips">
+                  {topics.map((t) => (
+                    <button
+                      key={t.label}
+                      type="button"
+                      className={`mockup-contact__chip ${
+                        selectedTopic === t.label ? 'mockup-contact__chip--active' : ''
+                      }`}
+                      onClick={() => handleSelectTopic(t)}
+                    >
+                      {t.label}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="mockup-contact__field">
+                  <label htmlFor="contact-message" className="mockup-contact__label">
+                    Your Message / Requirements
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    className="mockup-contact__textarea"
+                    placeholder="Describe your desired sizes, quantity, colors, or event date..."
+                    rows={4}
+                    value={message}
+                    onChange={(e) => {
+                      setMessage(e.target.value);
+                      setSelectedTopic('');
+                    }}
+                  />
+                </div>
+
+                {/* Submit Action matching Mockup */}
+                <button
+                  type="submit"
+                  className="mockup-contact__submit-btn"
+                >
+                  <WhatsappLogo size={18} weight="fill" />
+                  <span>Send Inquiry Via WhatsApp</span>
+                  <ArrowRight size={16} weight="bold" />
+                </button>
+
+              </form>
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
   );

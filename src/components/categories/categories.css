@@ -1,0 +1,186 @@
+/**
+ * Shop By Category CSS matching Mockup
+ */
+
+.mockup-categories {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+  background-color: var(--canvas-primary);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+@media (max-width: 768px) {
+  .mockup-categories {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+}
+
+.mockup-categories__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.mockup-categories__title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-h2);
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-top: var(--space-1);
+}
+
+.mockup-categories__header-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-micro);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-gold);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-categories__header-link:hover {
+  color: var(--text-primary);
+}
+
+.mockup-categories__header-link svg {
+  transition: transform var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-categories__header-link:hover svg {
+  transform: translateX(2px) translateY(-2px);
+}
+
+/* 6 Category Cards Grid */
+.mockup-categories__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 1200px) {
+  .mockup-categories__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 640px) {
+  .mockup-categories__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+}
+
+/* Category Card */
+.mockup-cat-card {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  transition: 
+    transform var(--duration-normal) var(--ease-editorial),
+    box-shadow var(--duration-normal) var(--ease-editorial);
+  background-color: var(--surface-espresso);
+}
+
+.mockup-cat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(26, 18, 11, 0.12);
+}
+
+.mockup-cat-card:focus-visible {
+  outline: 2px solid var(--text-gold);
+  outline-offset: 3px;
+}
+
+.mockup-cat-card__image-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-hairline-strong);
+}
+
+.mockup-cat-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--ease-editorial);
+  will-change: transform;
+}
+
+.mockup-cat-card:hover .mockup-cat-card__image {
+  transform: scale(1.05);
+}
+
+.mockup-cat-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 14, 9, 0.05) 30%,
+    rgba(20, 14, 9, 0.85) 100%
+  );
+  transition: opacity var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-cat-card:hover .mockup-cat-card__overlay {
+  opacity: 0.95;
+}
+
+.mockup-cat-card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-3) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--text-inverse);
+  z-index: 2;
+}
+
+.mockup-cat-card__count {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-gold);
+  text-transform: uppercase;
+}
+
+.mockup-cat-card__name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.15;
+}
+
+.mockup-cat-card__subtext {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mockup-cat-card,
+  .mockup-cat-card:hover,
+  .mockup-cat-card__image {
+    transition: none !important;
+    transform: none !important;
+  }
+}

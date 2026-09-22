@@ -1,0 +1,135 @@
+/**
+ * Why Us Section CSS (Espresso Theme matching Mockup)
+ */
+
+.mockup-whyus {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+  background-color: var(--surface-espresso);
+  color: var(--text-inverse);
+  position: relative;
+  border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+}
+
+@media (max-width: 768px) {
+  .mockup-whyus {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+}
+
+.mockup-whyus__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-12);
+}
+
+.mockup-whyus__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-micro);
+  letter-spacing: var(--tracking-loose);
+  color: var(--text-gold);
+  text-transform: uppercase;
+}
+
+.mockup-whyus__title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-h2);
+  color: var(--text-inverse);
+  font-weight: 500;
+}
+
+.mockup-whyus__subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  color: rgba(249, 249, 248, 0.7);
+  max-width: 52ch;
+}
+
+/* 4 Feature Cards Grid */
+.mockup-whyus__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 1040px) {
+  .mockup-whyus__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .mockup-whyus__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mockup-whyus__card {
+  background-color: var(--surface-espresso-card);
+  border: 1px solid var(--surface-espresso-border);
+  border-radius: var(--radius-subtle);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: 
+    border-color var(--duration-normal) var(--ease-editorial),
+    transform var(--duration-normal) var(--ease-editorial),
+    box-shadow var(--duration-normal) var(--ease-editorial);
+}
+
+.mockup-whyus__card:hover {
+  border-color: var(--surface-espresso-border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.mockup-whyus__card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mockup-whyus__card-icon {
+  color: var(--text-gold);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-subtle);
+  background-color: rgba(212, 160, 23, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mockup-whyus__card-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-wide);
+  color: rgba(249, 249, 248, 0.4);
+  font-weight: 600;
+}
+
+.mockup-whyus__card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-inverse);
+}
+
+.mockup-whyus__card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: var(--leading-relaxed);
+  color: rgba(249, 249, 248, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mockup-whyus__card {
+    transition: none !important;
+    transform: none !important;
+  }
+}

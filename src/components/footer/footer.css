@@ -1,0 +1,199 @@
+/**
+ * Footer CSS (Deep Espresso matching Mockup)
+ */
+
+.mockup-footer {
+  background-color: var(--surface-inverse);
+  color: var(--text-inverse);
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-8);
+  border-top: 1px solid rgba(212, 160, 23, 0.2);
+}
+
+.mockup-footer__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+  gap: var(--space-10);
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1040px) {
+  .mockup-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 600px) {
+  .mockup-footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* Brand Column */
+.mockup-footer__col-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.mockup-footer__brand-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.mockup-footer__brand-sub {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-micro);
+  letter-spacing: var(--tracking-loose);
+  color: var(--text-gold);
+  text-transform: uppercase;
+}
+
+.mockup-footer__brand-desc {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: var(--leading-relaxed);
+  color: rgba(249, 249, 248, 0.65);
+  max-width: 32ch;
+}
+
+.mockup-footer__social-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.mockup-footer__social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-subtle);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(249, 249, 248, 0.85);
+  transition: 
+    background-color var(--duration-fast) var(--ease-editorial),
+    color var(--duration-fast) var(--ease-editorial),
+    transform var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-footer__social-btn:hover {
+  background-color: var(--text-gold);
+  color: #1A120B;
+  transform: translateY(-2px);
+}
+
+/* Columns */
+.mockup-footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.mockup-footer__heading {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: var(--tracking-loose);
+  color: var(--text-gold);
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+
+.mockup-footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.mockup-footer__link {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: rgba(249, 249, 248, 0.75);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-footer__link:hover {
+  color: var(--text-gold-light);
+}
+
+.mockup-footer__contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: var(--leading-relaxed);
+  color: rgba(249, 249, 248, 0.75);
+}
+
+.mockup-footer__contact-info strong {
+  color: var(--text-gold);
+}
+
+/* Bottom Bar */
+.mockup-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding-top: var(--space-8);
+}
+
+.mockup-footer__copyright {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-micro);
+  color: rgba(249, 249, 248, 0.45);
+}
+
+.mockup-footer__back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.45rem 0.9rem;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-subtle);
+  color: rgba(249, 249, 248, 0.9);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-micro);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 
+    background-color var(--duration-fast) var(--ease-editorial),
+    color var(--duration-fast) var(--ease-editorial),
+    transform var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-footer__back-btn:hover {
+  background-color: var(--text-gold);
+  color: #1A120B;
+  transform: translateY(-2px);
+}
+
+.mockup-footer__back-btn svg {
+  transition: transform var(--duration-fast) var(--ease-editorial);
+}
+
+.mockup-footer__back-btn:hover svg {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mockup-footer__social-btn,
+  .mockup-footer__back-btn,
+  .mockup-footer__back-btn svg {
+    transition: none !important;
+    transform: none !important;
+  }
+}
