@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { X, WhatsappLogo, Check, Heart } from '@phosphor-icons/react';
 
 export const QuickViewModal = ({ product, onClose, onToggleWishlist, isWishlisted }) => {
@@ -28,7 +29,7 @@ export const QuickViewModal = ({ product, onClose, onToggleWishlist, isWishliste
   const inquiryText = `Hello Laxmikrupa Emporium, I would like to inquire about the ${product.name} (Color: ${selectedColor || 'Standard'}, Size: ${selectedSize || 'Standard'}). Is it currently in stock for store pickup or delivery?`;
   const waUrl = `https://wa.me/919512905629?text=${encodeURIComponent(inquiryText)}`;
 
-  return (
+  return createPortal(
     <div
       className="editorial-modal-overlay"
       onClick={onClose}
@@ -170,6 +171,7 @@ export const QuickViewModal = ({ product, onClose, onToggleWishlist, isWishliste
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
