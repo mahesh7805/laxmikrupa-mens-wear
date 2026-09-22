@@ -20,7 +20,7 @@ export const Footer = () => {
           {/* Column 1: Brand Info */}
           <div className="mockup-footer__col-brand">
             <div className="mockup-footer__brand-title">LAXMIKRUPA</div>
-            <div className="mockup-footer__brand-sub">EMPORIUM // MEN'S WEAR</div>
+            <div className="mockup-footer__brand-sub">EMPORIUM</div>
             <p className="mockup-footer__brand-desc">
               Surat's trusted destination for fine Indian ethnic menswear, tailored festive kurtas, and coordinated group mandali runs.
             </p>

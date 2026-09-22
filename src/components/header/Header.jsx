@@ -63,7 +63,7 @@ export const Header = ({ wishlistCount = 0, onOpenWishlist }) => {
           aria-label="Laxmikrupa Emporium Home"
         >
           <span className="editorial-header__brand-main">LAXMIKRUPA</span>
-          <span className="editorial-header__brand-sub">EMPORIUM // MEN'S WEAR</span>
+          <span className="editorial-header__brand-sub">EMPORIUM</span>
         </a>
 
         {/* Center Desktop Navigation */}
