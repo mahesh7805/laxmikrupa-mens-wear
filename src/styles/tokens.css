@@ -1,0 +1,120 @@
+/**
+ * Design System Tokens
+ * Bespoke Architectural Atelier Token Architecture
+ */
+
+:root {
+  /* Surface & Canvas Color Tokens */
+  --canvas-primary: #F9F9F8;
+  --canvas-secondary: #F2F2EE;
+  --surface-panel: #FFFFFF;
+  --surface-elevated: #F6F6F3;
+  --surface-overlay: rgba(249, 249, 248, 0.92);
+  --surface-backdrop: rgba(17, 18, 21, 0.45);
+  --surface-inverse: #111215;
+
+  /* Typography & Ink Tokens */
+  --text-primary: #111215;
+  --text-secondary: #52575E;
+  --text-tertiary: #8A9098;
+  --text-subtle: #A3A8AF;
+  --text-inverse: #F9F9F8;
+
+  /* Structural Hairlines */
+  --border-hairline: rgba(17, 18, 21, 0.09);
+  --border-hairline-strong: rgba(17, 18, 21, 0.20);
+  --border-hairline-interactive: rgba(17, 18, 21, 0.40);
+  --border-inverse-hairline: rgba(255, 255, 255, 0.12);
+
+  /* Singular Locked Accent */
+  --color-accent: #1E2B37;
+  --color-accent-subtle: rgba(30, 43, 55, 0.08);
+  --color-accent-hover: #121C26;
+
+  /* Functional Status Indicators */
+  --status-in-stock: #2D6A4F;
+  --status-low-stock: #B07D38;
+  --status-sold-out: #8C929A;
+
+  /* Typography Families */
+  --font-display: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+  /* Fluid Typographic Scale */
+  --font-size-hero: clamp(2.35rem, 4.2vw + 0.8rem, 3.85rem);
+  --font-size-h1: clamp(1.85rem, 3.2vw + 0.6rem, 2.75rem);
+  --font-size-h2: clamp(1.4rem, 2.2vw + 0.4rem, 2.1rem);
+  --font-size-h3: clamp(1.15rem, 1.4vw + 0.4rem, 1.5rem);
+  --font-size-body-lg: 1.0625rem;
+  --font-size-body: 0.9375rem;
+  --font-size-body-sm: 0.8125rem;
+  --font-size-micro: 0.6875rem;
+
+  /* Line Heights */
+  --leading-hero: 1.08;
+  --leading-tight: 1.20;
+  --leading-normal: 1.45;
+  --leading-relaxed: 1.65;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.08em;
+  --tracking-loose: 0.18em;
+  --tracking-micro: 0.22em;
+
+  /* Spacing Scale (8pt / 4pt grid rhythm) */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* Structural Dimensions */
+  --container-max-width: 1440px;
+  --gutter-desktop: var(--space-8);
+  --gutter-tablet: var(--space-6);
+  --gutter-mobile: var(--space-4);
+
+  --header-height-desktop: 68px;
+  --header-height-mobile: 56px;
+
+  /* Desktop Hero Top Spacing Token (80px - 96px) */
+  --hero-top-spacing-desktop: var(--space-20); /* 80px */
+  --hero-top-spacing-mobile: var(--space-8);   /* 32px */
+
+  /* Radii (Tailored, Architectural) */
+  --radius-none: 0px;
+  --radius-subtle: 2px;
+  --radius-interactive: 3px;
+
+  /* Motion & Transitions */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-glide: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-fast: 160ms;
+  --duration-normal: 280ms;
+  --duration-slow: 500ms;
+
+  /* Z-Index Layers */
+  --z-base: 1;
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-drawer: 300;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+    --duration-slow: 0ms;
+  }
+}
