@@ -3,7 +3,11 @@ import { MapPin, Clock, Phone, ArrowUpRight, WhatsappLogo } from '@phosphor-icon
 import './store.css';
 
 export const StoreSection = () => {
-  const directionsUrl = 'https://maps.google.com/?q=Station+Road+Cinema+Road+Surat+Gujarat+India';
+  // Exact coordinates: 21.1981862, 72.8365281
+  const LAT = 21.1981862;
+  const LNG = 72.8365281;
+  const MAP_EMBED_URL = `https://maps.google.com/maps?q=${LAT},${LNG}&hl=en&z=18&output=embed`;
+  const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${LAT},${LNG}`;
 
   return (
     <section id="store-info" className="mockup-store reveal-on-scroll" aria-label="Visit Our Surat Store">
@@ -22,45 +26,22 @@ export const StoreSection = () => {
           </p>
         </div>
 
-        {/* Map Container with Floating Store Card matching Mockup */}
+        {/* Map Container with Floating Store Card */}
         <div className="mockup-store__map-wrapper">
           
-          {/* Stylized Architectural Map Background */}
-          <div className="mockup-store__map-canvas" aria-hidden="true">
-            <svg className="mockup-store__map-svg" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
-              <defs>
-                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(26, 18, 11, 0.06)" strokeWidth="1" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="#ECEAE3" />
-              <rect width="100%" height="100%" fill="url(#grid)" />
-              
-              {/* Stylized Arteries / Streets */}
-              <path d="M 0 180 Q 400 220 700 160 T 1200 240" fill="none" stroke="#DCD9CF" strokeWidth="24" />
-              <path d="M 0 180 Q 400 220 700 160 T 1200 240" fill="none" stroke="#FFFFFF" strokeWidth="16" />
-
-              <path d="M 300 0 Q 340 250 420 500" fill="none" stroke="#DCD9CF" strokeWidth="20" />
-              <path d="M 300 0 Q 340 250 420 500" fill="none" stroke="#FFFFFF" strokeWidth="14" />
-
-              <path d="M 750 0 L 680 500" fill="none" stroke="#DCD9CF" strokeWidth="18" />
-              <path d="M 750 0 L 680 500" fill="none" stroke="#FFFFFF" strokeWidth="12" />
-
-              <path d="M 100 450 Q 500 350 900 420 T 1200 380" fill="none" stroke="#E2DFD6" strokeWidth="14" />
-              <path d="M 100 450 Q 500 350 900 420 T 1200 380" fill="none" stroke="#FFFFFF" strokeWidth="8" />
-
-              {/* Landmark Pin Indicator */}
-              <circle cx="580" cy="210" r="28" fill="rgba(212, 160, 23, 0.25)" />
-              <circle cx="580" cy="210" r="14" fill="#D4A017" />
-              <circle cx="580" cy="210" r="6" fill="#1A120B" />
-            </svg>
-
-            <div className="mockup-store__map-pin-pulse" style={{ left: '48%', top: '42%' }}>
-              <span className="mockup-store__pin-label">LAXMIKRUPA EMPORIUM</span>
-            </div>
+          {/* Interactive Map centered on exact coordinates 21.1981862, 72.8365281 */}
+          <div className="mockup-store__map-canvas">
+            <iframe
+              title="Laxmikrupa Emporium Exact Location"
+              src={MAP_EMBED_URL}
+              className="mockup-store__map-iframe"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              aria-label="Google Map centered on Laxmikrupa Emporium at 21.1981862, 72.8365281"
+            />
           </div>
 
-          {/* Floating Store Card matching Mockup */}
+          {/* Floating Store Card */}
           <div className="mockup-store__card">
             <div className="live-status-badge">
               <span className="live-status-dot" />
@@ -72,7 +53,11 @@ export const StoreSection = () => {
             <div className="mockup-store__card-rows">
               <div className="mockup-store__card-row">
                 <MapPin size={18} weight="fill" color="#D4A017" />
-                <span>Cinema Road / Station Road Area, Surat, Gujarat 395003</span>
+                <span>
+                  11, 12, Moti Super Market, U-10, Danapith Rd,<br />
+                  Opp. State Bank of India, Zampa Bazaar,<br />
+                  Begampura, Surat, Gujarat 395003
+                </span>
               </div>
 
               <div className="mockup-store__card-row">
@@ -89,10 +74,11 @@ export const StoreSection = () => {
             {/* Buttons */}
             <div className="mockup-store__card-actions">
               <a
-                href={directionsUrl}
+                href={DIRECTIONS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mockup-store__btn-directions"
+                aria-label="Get Directions to Laxmikrupa Emporium (21.1981862, 72.8365281)"
               >
                 <span>Get Directions</span>
                 <ArrowUpRight size={15} weight="bold" />

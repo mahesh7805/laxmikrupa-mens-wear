@@ -1,88 +1,115 @@
-import React from 'react';
-import { ArrowUpRight } from '@phosphor-icons/react';
-import { CATEGORIES_LIST } from '../../data/categories';
+import React, { useState } from 'react';
+import { ArrowUpRight, Sparkle } from '@phosphor-icons/react';
+import { CATEGORIES } from '../../data/categories';
+import { useRoute } from '../../hooks/useRoute';
 import './categories.css';
 
-export const ShopByCategory = ({ onSelectCategory }) => {
-  const handleCardClick = (catKey) => {
-    if (onSelectCategory) {
-      onSelectCategory(catKey === 'all' ? null : catKey);
-    }
-    const catalogEl = document.getElementById('catalog');
-    if (catalogEl) {
-      if (window.__lenis) {
-        window.__lenis.scrollTo(catalogEl, { offset: -70 });
-      } else {
-        catalogEl.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+export const ShopByCategory = () => {
+  const { navigate } = useRoute();
+  const [hoveredSlug, setHoveredSlug] = useState(null);
+
+  const handleCategoryClick = (slug) => {
+    navigate(`/collections/${slug}`);
   };
 
   return (
-    <section id="categories" className="mockup-categories reveal-on-scroll" aria-label="Shop By Category">
+    <section
+      id="categories"
+      className="mockup-categories reveal-on-scroll"
+      aria-label="Explore Our Collections"
+    >
       <div className="editorial-container">
         
         {/* Section Header */}
         <div className="mockup-categories__header">
-          <div>
-            <span className="editorial-micro-label editorial-micro-label--mono">
-              TAXONOMY // CURATED RETAIL
-            </span>
+          <div className="mockup-categories__header-title-group">
+            <div className="editorial-micro-label editorial-micro-label--mono">
+              <span>EXPLORE BY CATEGORY // SURAT ATELIER</span>
+            </div>
             <h2 className="mockup-categories__title">
-              Shop By Category
+              Curated Collections &amp; Disciplines
             </h2>
+            <p className="mockup-categories__subtitle">
+              From festive ethnic ensembles and wedding mandalis to everyday breathable cotton shirts — discover the breadth of Laxmikrupa’s tailoring.
+            </p>
           </div>
 
-          <a
-            href="#catalog"
-            onClick={(e) => {
-              e.preventDefault();
-              handleCardClick('all');
-            }}
+          <button
+            type="button"
+            onClick={() => navigate('/collections')}
             className="mockup-categories__header-link"
           >
-            <span>EXPLORE ALL CATEGORIES &amp; SUB-COLLECTIONS</span>
+            <span>VIEW ALL COLLECTIONS</span>
             <ArrowUpRight size={16} weight="bold" />
-          </a>
+          </button>
         </div>
 
-        {/* 6 Category Cards Grid matching mockup */}
-        <div className="mockup-categories__grid">
-          {CATEGORIES_LIST.map((cat, index) => (
-            <div
-              key={cat.id}
-              className="mockup-cat-card reveal-stagger-child"
-              style={{ '--stagger': index }}
-              onClick={() => handleCardClick(cat.categoryKey)}
-              tabIndex={0}
-              role="button"
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  handleCardClick(cat.categoryKey);
-                }
-              }}
-              aria-label={`Shop category ${cat.name}`}
-            >
-              <div className="mockup-cat-card__image-frame">
-                <img
-                  src={cat.image}
-                  alt={cat.name}
-                  className="mockup-cat-card__image"
-                  loading="lazy"
-                  width="280"
-                  height="340"
-                />
-                <div className="mockup-cat-card__overlay" />
-                
-                <div className="mockup-cat-card__content">
-                  <span className="mockup-cat-card__count">{cat.count}</span>
-                  <h3 className="mockup-cat-card__name">{cat.name}</h3>
-                  <span className="mockup-cat-card__subtext">{cat.subtext}</span>
+        {/* Dynamic Category Cards Grid */}
+        <div
+          className={`mockup-categories__grid ${
+            hoveredSlug ? 'mockup-categories__grid--has-hover' : ''
+          }`}
+        >
+          {CATEGORIES.map((cat, index) => {
+            const isHovered = hoveredSlug === cat.slug;
+            return (
+              <article
+                key={cat.slug}
+                className={`mockup-cat-card reveal-stagger-child ${
+                  isHovered ? 'mockup-cat-card--hovered' : ''
+                }`}
+                style={{ '--stagger': index % 3 }}
+                onClick={() => handleCategoryClick(cat.slug)}
+                onMouseEnter={() => setHoveredSlug(cat.slug)}
+                onMouseLeave={() => setHoveredSlug(null)}
+                tabIndex={0}
+                role="button"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleCategoryClick(cat.slug);
+                  }
+                }}
+                aria-label={`Explore ${cat.name} collection`}
+              >
+                <div className="mockup-cat-card__image-frame">
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="mockup-cat-card__image"
+                    loading="lazy"
+                    width="380"
+                    height="460"
+                  />
+                  <div className="mockup-cat-card__overlay" />
+                  
+                  {/* Subtle Badge */}
+                  <div className="mockup-cat-card__badge">
+                    <span className="mockup-cat-card__count">{cat.count}</span>
+                  </div>
+
+                  {/* Card Content & Metadata */}
+                  <div className="mockup-cat-card__content">
+                    <div className="mockup-cat-card__eyebrow">
+                      {cat.isSpecialInquiry ? 'SPECIAL BULK RUNS' : `COLLECTION 0${index + 1}`}
+                    </div>
+                    
+                    <h3 className="mockup-cat-card__name">{cat.name}</h3>
+                    
+                    <p className="mockup-cat-card__tagline">{cat.tagline}</p>
+
+                    {/* Revealable metadata & Explore CTA */}
+                    <div className="mockup-cat-card__cta-row">
+                      <span className="mockup-cat-card__cta-text">
+                        <span>Explore Collection</span>
+                        <ArrowUpRight size={15} weight="bold" />
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </article>
+            );
+          })}
         </div>
 
       </div>

@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { X, WhatsappLogo, Check, Heart } from '@phosphor-icons/react';
+import { X, WhatsappLogo, Check, Heart, ShieldCheck } from '@phosphor-icons/react';
 
-export const QuickViewModal = ({ product, onClose, onToggleWishlist, isWishlisted }) => {
+export const QuickViewModal = ({
+  product,
+  onClose,
+  onToggleWishlist,
+  isWishlisted = false,
+}) => {
   const [selectedColor, setSelectedColor] = useState(product?.colors?.[0]?.name || '');
   const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0] || '');
 
@@ -10,10 +15,21 @@ export const QuickViewModal = ({ product, onClose, onToggleWishlist, isWishliste
     if (product) {
       setSelectedColor(product.colors?.[0]?.name || '');
       setSelectedSize(product.sizes?.[0] || '');
+      
+      if (window.__lenis) {
+        window.__lenis.stop();
+      }
+      document.body.style.overflow = 'hidden';
     }
+
+    return () => {
+      if (window.__lenis) {
+        window.__lenis.start();
+      }
+      document.body.style.overflow = '';
+    };
   }, [product]);
 
-  // Handle escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -26,7 +42,16 @@ export const QuickViewModal = ({ product, onClose, onToggleWishlist, isWishliste
 
   if (!product) return null;
 
-  const inquiryText = `Hello Laxmikrupa Emporium, I would like to inquire about the ${product.name} (Color: ${selectedColor || 'Standard'}, Size: ${selectedSize || 'Standard'}). Is it currently in stock for store pickup or delivery?`;
+  const inquiryText = `Hello Laxmikrupa Emporium,
+
+*Product Inquiry from Website:*
+• *Item:* ${product.name}
+• *Price:* ${product.priceDemo}
+• *Selected Color:* ${selectedColor || 'Standard'}
+• *Selected Size:* ${selectedSize || 'Standard'}
+
+Could you please confirm stock availability at your Surat store?`;
+
   const waUrl = `https://wa.me/919512905629?text=${encodeURIComponent(inquiryText)}`;
 
   return createPortal(
@@ -46,7 +71,7 @@ export const QuickViewModal = ({ product, onClose, onToggleWishlist, isWishliste
           type="button"
           className="editorial-modal-close"
           onClick={onClose}
-          aria-label="Close product quick view"
+          aria-label="Close product preview"
         >
           <X size={20} weight="bold" />
         </button>
@@ -59,31 +84,33 @@ export const QuickViewModal = ({ product, onClose, onToggleWishlist, isWishliste
               alt={product.name}
               className="editorial-modal-image"
             />
-            <div className="editorial-modal-badge">
-              <span>{product.stockStatus}</span>
-            </div>
+            {product.stockStatus && (
+              <div className="editorial-modal-badge">
+                <span>{product.stockStatus}</span>
+              </div>
+            )}
           </div>
 
-          {/* Right Column: Product Config & Inquiry */}
+          {/* Right Column: Product Information & Inquire Flow */}
           <div className="editorial-modal-details">
             <div className="editorial-modal-header">
               <span className="editorial-micro-label editorial-micro-label--mono">
-                {product.category.toUpperCase().replace('-', ' ')}
+                {product.categoryName?.toUpperCase() || 'COLLECTION'} // {product.subcategoryName?.toUpperCase() || 'ETHNIC'}
               </span>
               <h2 id="quick-view-title" className="editorial-modal-title">
                 {product.name}
               </h2>
               <div className="editorial-modal-price-strip">
                 <span className="editorial-modal-price">{product.priceDemo}</span>
-                <span className="editorial-modal-price-note">Provisional Retail / Inquiry</span>
+                <span className="editorial-modal-price-note">Provisional Retail / In-Store Inquiry</span>
               </div>
             </div>
 
             <p className="editorial-modal-desc">
-              {product.tagline}
+              {product.description || product.tagline}
             </p>
 
-            {/* Color Swatches */}
+            {/* Color Selector */}
             {product.colors && product.colors.length > 0 && (
               <div className="editorial-modal-swatches">
                 <span className="editorial-modal-label">
@@ -99,7 +126,7 @@ export const QuickViewModal = ({ product, onClose, onToggleWishlist, isWishliste
                       }`}
                       style={{ backgroundColor: c.hex }}
                       onClick={() => setSelectedColor(c.name)}
-                      aria-label={`Select color ${c.name}`}
+                      aria-label={`Color ${c.name}`}
                       title={c.name}
                     >
                       {selectedColor === c.name && (
@@ -119,7 +146,7 @@ export const QuickViewModal = ({ product, onClose, onToggleWishlist, isWishliste
             {product.sizes && product.sizes.length > 0 && (
               <div className="editorial-modal-sizes">
                 <div className="editorial-modal-sizes-header">
-                  <span className="editorial-modal-label">Available Sizes</span>
+                  <span className="editorial-modal-label">Select Size</span>
                   <span className="editorial-modal-size-range">{product.sizeRangeLabel}</span>
                 </div>
                 <div className="editorial-modal-size-chips">
@@ -131,6 +158,7 @@ export const QuickViewModal = ({ product, onClose, onToggleWishlist, isWishliste
                         selectedSize === s ? 'editorial-modal-size-chip--active' : ''
                       }`}
                       onClick={() => setSelectedSize(s)}
+                      aria-label={`Size ${s}`}
                     >
                       {s}
                     </button>
@@ -151,21 +179,24 @@ export const QuickViewModal = ({ product, onClose, onToggleWishlist, isWishliste
                 <span>Inquire via WhatsApp</span>
               </a>
 
-              <button
-                type="button"
-                className={`editorial-modal-wishlist-btn ${
-                  isWishlisted ? 'editorial-modal-wishlist-btn--active' : ''
-                }`}
-                onClick={() => onToggleWishlist(product.id)}
-                aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
-                title={isWishlisted ? 'Saved in wishlist' : 'Save to wishlist'}
-              >
-                <Heart size={20} weight={isWishlisted ? 'fill' : 'regular'} />
-              </button>
+              {onToggleWishlist && (
+                <button
+                  type="button"
+                  className={`editorial-modal-wishlist-btn ${
+                    isWishlisted ? 'editorial-modal-wishlist-btn--active' : ''
+                  }`}
+                  onClick={() => onToggleWishlist(product.id)}
+                  aria-label={isWishlisted ? 'Remove from saved items' : 'Save to wishlist'}
+                  title={isWishlisted ? 'Saved in wishlist' : 'Save to wishlist'}
+                >
+                  <Heart size={20} weight={isWishlisted ? 'fill' : 'regular'} color={isWishlisted ? '#B8860B' : 'currentColor'} />
+                </button>
+              )}
             </div>
 
-            {/* Store Guarantee / Support Note */}
+            {/* Store Note */}
             <div className="editorial-modal-footer-note">
+              <ShieldCheck size={16} weight="fill" color="#D4A017" />
               <span>Direct store inquiry with Laxmikrupa Emporium • Surat, Gujarat</span>
             </div>
           </div>

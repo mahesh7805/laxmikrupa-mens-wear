@@ -1,25 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUpRight, ArrowRight, Sparkle } from '@phosphor-icons/react';
+import { ArrowRight } from '@phosphor-icons/react';
+import { useRoute } from '../../hooks/useRoute';
 import './hero.css';
 
 export const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const { navigate } = useRoute();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 60);
     return () => clearTimeout(timer);
   }, []);
 
-  const handleScrollTo = (e, id) => {
+  const handleNavigate = (e, url) => {
     e.preventDefault();
-    const el = document.getElementById(id);
-    if (el) {
-      if (window.__lenis) {
-        window.__lenis.scrollTo(el, { offset: -70 });
-      } else {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    navigate(url);
   };
 
   return (
@@ -30,7 +25,7 @@ export const Hero = () => {
     >
       <div className="editorial-container mockup-hero__container">
         
-        {/* Left Column: Headline & Action Box */}
+        {/* Left Column: Headline & Single Editorial Action */}
         <div className="mockup-hero__left">
           
           <div className="mockup-hero__eyebrow-strip hero-anim-1">
@@ -48,31 +43,15 @@ export const Hero = () => {
             Laxmikrupa Emporium brings timeless Indian ethnic menswear and modern casuals into effortless harmony. Discover handcrafted kurtas, designer cuts, and tailored fabrics for every celebration.
           </p>
 
-          {/* Dark Espresso Highlight Action Box matching mockup */}
-          <div className="mockup-hero__cta-box hero-anim-4">
+          {/* Single Clear Editorial Action: Explore All Collections */}
+          <div className="mockup-hero__action-wrap hero-anim-4">
             <a
-              href="#festive-edit"
-              onClick={(e) => handleScrollTo(e, 'festive-edit')}
-              className="mockup-hero__cta-box-inner"
+              href="/collections"
+              onClick={(e) => handleNavigate(e, '/collections')}
+              className="editorial-button editorial-button--primary mockup-hero__cta-btn"
+              aria-label="Explore All Collections"
             >
-              <div className="mockup-hero__cta-box-text">
-                <span className="mockup-hero__cta-box-label">Festive &amp; Group Orders</span>
-                <span className="mockup-hero__cta-box-title">Explore Our Festive &amp; Bridal Collection</span>
-              </div>
-              <div className="mockup-hero__cta-box-arrow" aria-hidden="true">
-                <ArrowUpRight size={18} weight="bold" />
-              </div>
-            </a>
-          </div>
-
-          {/* Secondary Link */}
-          <div className="mockup-hero__secondary-link-wrap hero-anim-5">
-            <a
-              href="#categories"
-              onClick={(e) => handleScrollTo(e, 'categories')}
-              className="mockup-hero__secondary-link"
-            >
-              <span>EXPLORE ETHNIC MENSWEAR</span>
+              <span>EXPLORE ALL COLLECTIONS</span>
               <ArrowRight size={16} weight="bold" />
             </a>
           </div>

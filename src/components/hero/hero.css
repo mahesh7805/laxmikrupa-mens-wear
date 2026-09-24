@@ -1,5 +1,6 @@
 /**
  * Hero CSS matching Design Mockup
+ * Laxmikrupa Emporium - Editorial Architecture
  */
 
 .mockup-hero {
@@ -84,102 +85,48 @@
   color: var(--text-secondary);
 }
 
-/* Dark Espresso Action Box matching mockup */
-.mockup-hero__cta-box {
+/* Single Editorial Primary CTA */
+.mockup-hero__action-wrap {
+  padding-top: var(--space-2);
+  display: flex;
+  align-items: center;
+}
+
+.mockup-hero__cta-btn {
+  padding: 0.95rem 1.85rem;
   background-color: var(--surface-espresso);
-  border: 1px solid rgba(212, 160, 23, 0.3);
+  color: #FFFFFF;
+  border: 1px solid rgba(212, 160, 23, 0.35);
   border-radius: var(--radius-subtle);
-  overflow: hidden;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-micro);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  box-shadow: 0 4px 14px rgba(26, 18, 11, 0.12);
   transition: 
+    background-color var(--duration-fast) var(--ease-editorial),
     border-color var(--duration-fast) var(--ease-editorial),
     transform var(--duration-fast) var(--ease-editorial),
     box-shadow var(--duration-fast) var(--ease-editorial);
 }
 
-.mockup-hero__cta-box:hover {
+.mockup-hero__cta-btn:hover {
+  background-color: #2D1E12;
   border-color: var(--text-gold);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(26, 18, 11, 0.15);
+  box-shadow: 0 8px 24px rgba(26, 18, 11, 0.2);
 }
 
-.mockup-hero__cta-box-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--space-4) var(--space-5);
-  text-decoration: none;
-  gap: var(--space-3);
-}
-
-.mockup-hero__cta-box-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.mockup-hero__cta-box-label {
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
+.mockup-hero__cta-btn svg {
   color: var(--text-gold);
-}
-
-.mockup-hero__cta-box-title {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-body);
-  font-weight: 600;
-  color: var(--canvas-primary);
-}
-
-.mockup-hero__cta-box-arrow {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: rgba(212, 160, 23, 0.15);
-  color: var(--text-gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 
-    background-color var(--duration-fast) var(--ease-editorial),
-    transform var(--duration-fast) var(--ease-editorial);
-}
-
-.mockup-hero__cta-box:hover .mockup-hero__cta-box-arrow {
-  background-color: var(--text-gold);
-  color: var(--surface-espresso);
-  transform: translateX(2px) translateY(-2px);
-}
-
-/* Secondary Link */
-.mockup-hero__secondary-link-wrap {
-  padding-top: var(--space-1);
-}
-
-.mockup-hero__secondary-link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-family: var(--font-sans);
-  font-size: var(--font-size-body-sm);
-  font-weight: 600;
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-editorial);
-}
-
-.mockup-hero__secondary-link svg {
   transition: transform var(--duration-fast) var(--ease-editorial);
 }
 
-.mockup-hero__secondary-link:hover {
-  color: var(--text-gold);
-}
-
-.mockup-hero__secondary-link:hover svg {
+.mockup-hero__cta-btn:hover svg {
   transform: translateX(4px);
 }
 
@@ -237,7 +184,6 @@
 .hero-anim-2,
 .hero-anim-3,
 .hero-anim-4,
-.hero-anim-5,
 .hero-anim-visual {
   opacity: 0;
   transform: translateY(20px);
@@ -270,12 +216,6 @@
   transition-delay: 440ms;
 }
 
-.mockup-hero--loaded .hero-anim-5 {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 560ms;
-}
-
 .mockup-hero--loaded .hero-anim-visual {
   opacity: 1;
   transform: translateY(0);
@@ -290,7 +230,6 @@
   .hero-anim-2,
   .hero-anim-3,
   .hero-anim-4,
-  .hero-anim-5,
   .hero-anim-visual,
   .mockup-hero__photo {
     transition: none !important;
