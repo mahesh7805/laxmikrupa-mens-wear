@@ -201,6 +201,11 @@
   text-transform: uppercase;
 }
 
+.editorial-product-card__badge--out {
+  background-color: rgba(120, 20, 20, 0.9);
+  color: #FEE2E2;
+}
+
 /* Quick View Hover Strip on Card Image */
 .editorial-product-card__quickview-hover {
   position: absolute;
@@ -350,11 +355,24 @@
   padding-top: var(--space-2);
 }
 
+.editorial-product-card__price-group {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
 .editorial-product-card__price {
   font-family: var(--font-mono);
   font-size: var(--font-size-body-sm);
   font-weight: 600;
   color: var(--text-primary);
+}
+
+.editorial-product-card__compare-price {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--text-tertiary);
+  text-decoration: line-through;
 }
 
 .editorial-product-card__size-range {
@@ -559,6 +577,13 @@
   font-size: 1.35rem;
   font-weight: 600;
   color: var(--text-primary);
+}
+
+.editorial-modal-compare-price {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text-tertiary);
+  text-decoration: line-through;
 }
 
 .editorial-modal-price-note {

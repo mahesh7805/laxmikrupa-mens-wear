@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowLeft, ArrowUpRight, Sparkle } from '@phosphor-icons/react';
 import { getAllCategories } from '../../data/categories';
 import { useRoute } from '../../hooks/useRoute';
+import { getAssetPath } from '../../utils/assetPath';
 import './collection.css';
 
 export const CollectionsIndex = () => {
@@ -65,7 +66,7 @@ export const CollectionsIndex = () => {
               >
                 <div className="collection-index-card__image-frame">
                   <img
-                    src={cat.image}
+                    src={getAssetPath(cat.image)}
                     alt={cat.name}
                     className="collection-index-card__image"
                     loading="lazy"

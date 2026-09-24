@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowUpRight, Sparkle } from '@phosphor-icons/react';
 import { CATEGORIES } from '../../data/categories';
 import { useRoute } from '../../hooks/useRoute';
+import { getAssetPath } from '../../utils/assetPath';
 import './categories.css';
 
 export const ShopByCategory = () => {
@@ -74,7 +75,7 @@ export const ShopByCategory = () => {
               >
                 <div className="mockup-cat-card__image-frame">
                   <img
-                    src={cat.image}
+                    src={getAssetPath(cat.image)}
                     alt={cat.name}
                     className="mockup-cat-card__image"
                     loading="lazy"

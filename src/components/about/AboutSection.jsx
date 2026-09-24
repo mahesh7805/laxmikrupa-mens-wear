@@ -1,5 +1,6 @@
 import React from 'react';
 import { Storefront, Clock, UsersThree, Scissors, ArrowUpRight } from '@phosphor-icons/react';
+import { getAssetPath } from '../../utils/assetPath';
 import './about.css';
 
 export const AboutSection = () => {
@@ -40,7 +41,7 @@ export const AboutSection = () => {
           {/* Left Column: Architectural Photo with Tag */}
           <div className="editorial-about__visual-frame reveal-stagger-child" style={{ '--stagger': 0 }}>
             <img
-              src="/assets/images/store_atelier.jpg"
+              src={getAssetPath('/assets/images/store_atelier.jpg')}
               alt="Laxmikrupa Emporium Surat Store Interior showcasing textiles and tailored ethnic wear"
               className="editorial-about__image"
               loading="lazy"

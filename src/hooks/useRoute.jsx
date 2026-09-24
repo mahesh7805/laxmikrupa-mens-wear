@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 const RouterContext = createContext(null);
+const BASE_PATH = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
 
 export function RouterProvider({ children }) {
   const [currentPath, setCurrentPath] = useState(() => {
@@ -33,10 +34,14 @@ export function RouterProvider({ children }) {
       return;
     }
 
+    // Ensure full path includes BASE_PATH prefix when navigating
+    const relativeUrl = url.startsWith('/') ? url : `/${url}`;
+    const fullUrl = BASE_PATH ? `${BASE_PATH}${relativeUrl}` : relativeUrl;
+
     // Push new history entry if different
-    if (window.location.pathname !== url) {
-      window.history.pushState({}, '', url);
-      setCurrentPath(url);
+    if (window.location.pathname !== fullUrl) {
+      window.history.pushState({}, '', fullUrl);
+      setCurrentPath(fullUrl);
     }
 
     if (scrollToTop) {
@@ -50,9 +55,13 @@ export function RouterProvider({ children }) {
 
   // Parse route parameters
   const parseRoute = () => {
-    const path = currentPath.replace(/\/$/, '') || '/';
+    let path = currentPath;
+    if (BASE_PATH && path.startsWith(BASE_PATH)) {
+      path = path.slice(BASE_PATH.length);
+    }
+    path = path.replace(/\/$/, '') || '/';
 
-    if (path === '/') {
+    if (path === '/' || path === '') {
       return { route: 'home', params: {} };
     }
 

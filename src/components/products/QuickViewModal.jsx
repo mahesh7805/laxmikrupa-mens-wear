@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X, WhatsappLogo, Check, Heart, ShieldCheck } from '@phosphor-icons/react';
+import { getAssetPath } from '../../utils/assetPath';
 
 export const QuickViewModal = ({
   product,
@@ -80,7 +81,7 @@ Could you please confirm stock availability at your Surat store?`;
           {/* Left Column: Image Preview */}
           <div className="editorial-modal-image-frame">
             <img
-              src={product.image}
+              src={getAssetPath(product.image)}
               alt={product.name}
               className="editorial-modal-image"
             />
@@ -102,6 +103,9 @@ Could you please confirm stock availability at your Surat store?`;
               </h2>
               <div className="editorial-modal-price-strip">
                 <span className="editorial-modal-price">{product.priceDemo}</span>
+                {product.compareAtPrice && (
+                  <span className="editorial-modal-compare-price">{product.compareAtPrice}</span>
+                )}
                 <span className="editorial-modal-price-note">Provisional Retail / In-Store Inquiry</span>
               </div>
             </div>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Heart, Eye, WhatsappLogo } from '@phosphor-icons/react';
+import { getAssetPath } from '../../utils/assetPath';
+import './products.css';
 
 export const ProductCard = ({
   product,
@@ -21,15 +23,14 @@ export const ProductCard = ({
 
   return (
     <article
-      className="editorial-product-card reveal-stagger-child"
-      style={{ '--stagger': index % 4 }}
+      className="editorial-product-card"
       tabIndex={0}
       aria-label={`${product.name} - ${product.priceDemo}`}
     >
       {/* Image Showcase Frame with Single Subtle Quick View Hover */}
       <div className="editorial-product-card__image-frame">
         <img
-          src={product.image}
+          src={getAssetPath(product.image)}
           alt={product.name}
           className="editorial-product-card__image"
           loading="lazy"
@@ -61,7 +62,9 @@ export const ProductCard = ({
 
         {/* Stock / Badge */}
         {product.stockStatus && (
-          <div className="editorial-product-card__badge">
+          <div className={`editorial-product-card__badge ${
+            product.availability === 'out-of-stock' ? 'editorial-product-card__badge--out' : ''
+          }`}>
             <span>{product.stockStatus}</span>
           </div>
         )}
@@ -125,7 +128,12 @@ export const ProductCard = ({
 
         {/* Price & Size Range Strip */}
         <div className="editorial-product-card__price-row">
-          <span className="editorial-product-card__price">{product.priceDemo}</span>
+          <div className="editorial-product-card__price-group">
+            <span className="editorial-product-card__price">{product.priceDemo}</span>
+            {product.compareAtPrice && (
+              <span className="editorial-product-card__compare-price">{product.compareAtPrice}</span>
+            )}
+          </div>
           <span className="editorial-product-card__size-range">{product.sizeRangeLabel}</span>
         </div>
 

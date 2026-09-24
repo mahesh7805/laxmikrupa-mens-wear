@@ -14,6 +14,8 @@ import { getProductsByCategory } from '../../data/products';
 import { ProductCard } from '../../components/products/ProductCard';
 import { QuickViewModal } from '../../components/products/QuickViewModal';
 import { useRoute } from '../../hooks/useRoute';
+import { getAssetPath } from '../../utils/assetPath';
+import '../../components/products/products.css';
 import './collection.css';
 
 export const CollectionPage = ({ categorySlug, wishlist = [], onToggleWishlist }) => {
@@ -26,6 +28,13 @@ export const CollectionPage = ({ categorySlug, wishlist = [], onToggleWishlist }
   const [sortBy, setSortBy] = useState('featured');
   const [availabilityFilter, setAvailabilityFilter] = useState('all');
   const [quickViewProduct, setQuickViewProduct] = useState(null);
+
+  // Reset filters when category changes
+  React.useEffect(() => {
+    setActiveSubcategory('all');
+    setAvailabilityFilter('all');
+    setSortBy('featured');
+  }, [categorySlug]);
 
   // Group Order Builder State for special category
   const [groupQuantity, setGroupQuantity] = useState('25-50');
@@ -63,6 +72,9 @@ export const CollectionPage = ({ categorySlug, wishlist = [], onToggleWishlist }
       }
       // Availability filter
       if (availabilityFilter === 'in-stock' && product.availability !== 'in-stock') {
+        return false;
+      }
+      if (availabilityFilter === 'out-of-stock' && product.availability !== 'out-of-stock') {
         return false;
       }
       if (availabilityFilter === 'group-available' && !product.groupOrderAvailable) {
@@ -155,7 +167,7 @@ Could you please share quotation and delivery timelines for Surat / shipping?`;
           <div className="collection-hero__right">
             <div className="collection-hero__image-frame">
               <img
-                src={category.heroImage || category.image}
+                src={getAssetPath(category.heroImage || category.image)}
                 alt={`${category.name} editorial showcase`}
                 className="collection-hero__image"
                 loading="eager"
@@ -321,6 +333,7 @@ Could you please share quotation and delivery timelines for Surat / shipping?`;
                 >
                   <option value="all">All Items</option>
                   <option value="in-stock">In Stock Only</option>
+                  <option value="out-of-stock">Out of Stock</option>
                   <option value="group-available">Group Orders</option>
                 </select>
               </div>

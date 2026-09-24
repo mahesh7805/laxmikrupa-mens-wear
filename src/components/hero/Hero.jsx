@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from '@phosphor-icons/react';
 import { useRoute } from '../../hooks/useRoute';
+import { getAssetPath } from '../../utils/assetPath';
 import './hero.css';
 
 export const Hero = () => {
@@ -65,7 +66,7 @@ export const Hero = () => {
           <div className="mockup-hero__photo-card">
             <div className="mockup-hero__photo-frame">
               <img
-                src="/assets/images/hero_hanging_fabrics.jpg"
+                src={getAssetPath('/assets/images/hero_hanging_fabrics.jpg')}
                 alt="Pure cotton and linen kurta fabric hanging in warm daylight"
                 className="mockup-hero__photo"
                 loading="eager"
@@ -83,7 +84,7 @@ export const Hero = () => {
           <div className="mockup-hero__photo-card">
             <div className="mockup-hero__photo-frame">
               <img
-                src="/assets/images/hero_store_display.jpg"
+                src={getAssetPath('/assets/images/hero_store_display.jpg')}
                 alt="Surat store collection display racks and tailored menswear"
                 className="mockup-hero__photo"
                 loading="eager"
