@@ -65,7 +65,7 @@ export function Hero({ onExploreClick, onShopClick }) {
           {/* Main Tall Center Image */}
           <div className="c2-hero-card c2-hero-card-main">
             <img
-              src={getAssetPath('/assets/concept-2/hero-main.jpg')}
+              src={getAssetPath('/assets/concept-2/hero-main-wide-v2.jpg')}
               alt="Laxmikrupa Men's Wear - Contemporary Everyday Collection"
               loading="eager"
             />
