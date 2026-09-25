@@ -1,0 +1,123 @@
+/* ==========================================================================
+   CONCEPT 2: WHY CHOOSE US STYLES (Strict Reference Match)
+   ========================================================================== */
+
+.c2-why-section {
+  padding: 65px 0 75px 0;
+  background-color: var(--c2-dark-espresso);
+  background-image: radial-gradient(circle at 50% 30%, var(--c2-dark-brown) 0%, var(--c2-darkest-brown) 100%);
+  color: var(--c2-text-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.c2-why-header {
+  margin-bottom: 40px;
+}
+
+.c2-number-badge-light {
+  color: var(--c2-text-muted) !important;
+}
+
+.c2-number-badge-light::after {
+  background-color: var(--c2-text-muted) !important;
+}
+
+.c2-why-heading {
+  font-family: var(--c2-font-serif);
+  font-size: 42px;
+  font-weight: 500;
+  color: var(--c2-text-light);
+  margin: 0 0 6px 0;
+  letter-spacing: -0.02em;
+}
+
+.c2-why-subheading {
+  font-family: var(--c2-font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--c2-accent-brass);
+  text-transform: uppercase;
+}
+
+/* 4 Feature Columns */
+.c2-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+}
+
+.c2-why-col {
+  padding: 10px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.c2-why-col:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 1px;
+  height: 80%;
+  background-color: var(--c2-border-dark);
+}
+
+.c2-why-icon-wrap {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: var(--c2-accent-brass);
+}
+
+.c2-why-icon {
+  stroke-width: 1.2px;
+}
+
+.c2-why-col-title {
+  font-family: var(--c2-font-serif);
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--c2-text-light);
+  margin: 0 0 10px 0;
+  letter-spacing: 0.01em;
+}
+
+.c2-why-col-desc {
+  font-family: var(--c2-font-sans);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #C5B8AB;
+  margin: 0;
+  max-width: 240px;
+}
+
+@media (max-width: 1024px) {
+  .c2-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 36px;
+  }
+  .c2-why-col:nth-child(2)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .c2-why-grid {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+  .c2-why-col::after {
+    display: none !important;
+  }
+  .c2-why-col {
+    padding: 0;
+  }
+}

@@ -1,0 +1,173 @@
+/* ==========================================================================
+   CONCEPT SELECTOR STYLES (Clean & Independent)
+   ========================================================================== */
+
+.concept-selector-root {
+  min-height: 100vh;
+  background-color: #120C08;
+  background-image: radial-gradient(circle at 50% 20%, #241710 0%, #0D0704 100%);
+  color: #F8F5EE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-sizing: border-box;
+}
+
+.concept-selector-container {
+  max-width: 960px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.concept-selector-header {
+  margin-bottom: 48px;
+}
+
+.selector-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #C29B62;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.selector-brand-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin: 0 0 14px 0;
+  color: #FFFFFF;
+}
+
+.selector-subtitle {
+  font-size: 15px;
+  color: #A69B90;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+/* Cards Grid */
+.concept-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.concept-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.concept-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.concept-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.concept-card:hover::before {
+  background: #C29B62;
+}
+
+.concept-card-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #8C7F73;
+  margin-bottom: 20px;
+}
+
+.concept-card-tag-gold {
+  color: #DFBE8A;
+}
+
+.concept-card-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(194, 155, 98, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #C29B62;
+  margin-bottom: 20px;
+}
+
+.concept-card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 0 0 12px 0;
+  line-height: 1.25;
+}
+
+.concept-card-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #B5AAA0;
+  margin: 0 0 28px 0;
+  flex-grow: 1;
+}
+
+.concept-card-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #C29B62;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.concept-card:hover .concept-card-action {
+  color: #DFBE8A;
+  transform: translateX(4px);
+}
+
+.concept-selector-footer {
+  font-size: 12px;
+  color: #7D7268;
+}
+
+@media (max-width: 768px) {
+  .concept-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .selector-brand-title {
+    font-size: 32px;
+  }
+}

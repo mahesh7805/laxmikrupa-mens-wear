@@ -1,0 +1,130 @@
+/* ==========================================================================
+   CONCEPT 2: WHO WE ARE STYLES (Strict Reference Match)
+   ========================================================================== */
+
+.c2-who-section {
+  padding: 75px 0 80px 0;
+  background-color: var(--c2-bg-ivory);
+  border-bottom: 1px solid var(--c2-border-beige);
+}
+
+.c2-who-container {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.c2-who-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.c2-who-text {
+  font-family: var(--c2-font-sans);
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--c2-text-secondary);
+  margin: 0 0 28px 0;
+  max-width: 340px;
+}
+
+/* Right Visual Collage */
+.c2-who-right {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 30px;
+  align-items: center;
+}
+
+.c2-who-photos-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 16px;
+  height: 310px;
+}
+
+.c2-who-photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: var(--c2-bg-stone);
+}
+
+.c2-who-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.c2-who-label-photo {
+  position: relative;
+}
+
+.c2-who-label-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--c2-dark-espresso);
+  color: var(--c2-accent-brass);
+  font-family: var(--c2-font-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  padding: 8px 18px;
+  border: 1px solid rgba(183, 154, 110, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+/* Calligraphic Heritage Script */
+.c2-who-script-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.c2-who-script-text {
+  font-family: 'Caveat', cursive;
+  font-size: 42px;
+  line-height: 1.05;
+  color: var(--c2-accent-burgundy);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.c2-who-script-line {
+  width: 44px;
+  height: 1.5px;
+  background-color: var(--c2-accent-burgundy);
+}
+
+@media (max-width: 1024px) {
+  .c2-who-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .c2-who-right {
+    grid-template-columns: 1fr 140px;
+  }
+  .c2-who-photos-grid {
+    height: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .c2-who-right {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .c2-who-photos-grid {
+    grid-template-columns: 1fr 1fr;
+    height: 200px;
+  }
+  .c2-who-script-wrap {
+    align-items: center;
+    text-align: center;
+  }
+}

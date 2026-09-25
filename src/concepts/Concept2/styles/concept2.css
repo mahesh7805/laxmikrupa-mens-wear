@@ -1,0 +1,216 @@
+/* ==========================================================================
+   CONCEPT 2: LUXURY EDITORIAL DESIGN SYSTEM
+   Exact recreation of the reference image visual specification
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@400;600;700&family=Satisfy&display=swap');
+
+.concept2-root {
+  /* MASTER COLOR PALETTE */
+  --c2-bg-ivory: #F4F0E8;
+  --c2-bg-cream: #EAE2D6;
+  --c2-bg-warm-white: #F8F5EF;
+  --c2-bg-stone: #D8CCBC;
+
+  /* Primary Dark Palette */
+  --c2-dark-espresso: #241611;
+  --c2-dark-brown: #321D16;
+  --c2-dark-chocolate: #4A2C21;
+  --c2-darkest-brown: #1B100D;
+
+  /* Typography Colors */
+  --c2-text-primary: #211815;
+  --c2-text-secondary: #62544B;
+  --c2-text-muted: #81746A;
+  --c2-text-light: #F4EEE5;
+  --c2-text-light-muted: #B9AAA0;
+
+  /* Accents */
+  --c2-accent-burgundy: #754A46;
+  --c2-accent-terracotta: #8A5A48;
+  --c2-accent-brass: #B79A6E;
+
+  /* Borders */
+  --c2-border-beige: #D8CEC1;
+  --c2-border-subtle: #E2DBD1;
+  --c2-border-dark: rgba(244, 238, 229, 0.12);
+
+  /* Typography Stack */
+  --c2-font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --c2-font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --c2-font-script: 'Caveat', cursive;
+
+  background-color: var(--c2-bg-ivory);
+  color: var(--c2-text-primary);
+  font-family: var(--c2-font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Global Reset inside Concept 2 */
+.concept2-root * {
+  box-sizing: border-box;
+}
+
+.concept2-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 36px;
+}
+
+@media (max-width: 1024px) {
+  .concept2-container {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .concept2-container {
+    padding: 0 16px;
+  }
+}
+
+/* Editorial Section Tags & Eyebrows */
+.c2-section-tag {
+  font-family: var(--c2-font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c2-text-muted);
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.c2-section-heading {
+  font-family: var(--c2-font-serif);
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--c2-text-primary);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.c2-section-subtext {
+  font-family: var(--c2-font-sans);
+  font-size: 14px;
+  color: var(--c2-text-secondary);
+  font-weight: 400;
+  margin: 4px 0 0 0;
+}
+
+.c2-view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--c2-font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--c2-text-primary);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.c2-view-all-link:hover {
+  color: var(--c2-accent-burgundy);
+  transform: translateX(4px);
+}
+
+/* Numbered Section Header (01, 02, 04, 05) */
+.c2-numbered-header {
+  margin-bottom: 24px;
+}
+
+.c2-number-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--c2-font-sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--c2-text-muted);
+  margin-bottom: 8px;
+}
+
+.c2-number-badge::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1.5px;
+  background-color: var(--c2-text-muted);
+}
+
+.c2-numbered-header .c2-heading {
+  font-family: var(--c2-font-serif);
+  font-size: 44px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--c2-text-primary);
+  line-height: 1.1;
+  margin: 0 0 6px 0;
+}
+
+.c2-numbered-header .c2-subtitle {
+  font-family: var(--c2-font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c2-text-muted);
+}
+
+/* Editorial Minimal-Radius Buttons (2-4px, Not Rounded Pills) */
+.c2-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--c2-dark-espresso);
+  color: var(--c2-text-light);
+  font-family: var(--c2-font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 12px 24px;
+  border-radius: 2px;
+  border: 1px solid var(--c2-dark-espresso);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.c2-btn-primary:hover {
+  background-color: var(--c2-dark-brown);
+  transform: translateY(-1px);
+}
+
+.c2-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  color: var(--c2-text-primary);
+  font-family: var(--c2-font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 12px 22px;
+  border-radius: 2px;
+  border: 1px solid rgba(36, 22, 17, 0.4);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.c2-btn-outline:hover {
+  border-color: var(--c2-dark-espresso);
+  background-color: rgba(36, 22, 17, 0.04);
+  transform: translateY(-1px);
+}

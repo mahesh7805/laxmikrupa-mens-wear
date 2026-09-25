@@ -1,0 +1,118 @@
+/* ==========================================================================
+   CONCEPT 2: THE FESTIVE EDIT BANNER STYLES
+   ========================================================================== */
+
+.c2-festive-section {
+  padding: 30px 0 50px 0;
+  background-color: var(--c2-bg-warm);
+}
+
+.c2-festive-banner {
+  background: linear-gradient(135deg, #2D1A10 0%, #1A0E08 50%, #26140B 100%);
+  border-radius: 6px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 300px 1fr 300px;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 16px 40px rgba(27, 18, 11, 0.18);
+  border: 1px solid rgba(194, 155, 98, 0.25);
+}
+
+.c2-festive-image-wrap {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.c2-festive-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Center Content */
+.c2-festive-center {
+  padding: 24px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.c2-festive-title {
+  font-family: var(--c2-font-serif);
+  font-style: italic;
+  font-size: 38px;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.01em;
+}
+
+.c2-festive-subtitle {
+  font-family: var(--c2-font-sans);
+  font-size: 13.5px;
+  color: #D6C7BA;
+  margin: 0 0 20px 0;
+}
+
+/* Right 3 Occasions */
+.c2-festive-occasions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 24px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.c2-occasion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--c2-gold-light);
+  font-family: var(--c2-font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.c2-occasion-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c2-gold);
+}
+
+@media (max-width: 1024px) {
+  .c2-festive-banner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .c2-festive-image-wrap {
+    height: 220px;
+  }
+  .c2-festive-occasions {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .c2-festive-title {
+    font-size: 30px;
+  }
+  .c2-festive-occasions {
+    gap: 16px;
+  }
+  .c2-occasion-item span {
+    font-size: 10px;
+  }
+}
