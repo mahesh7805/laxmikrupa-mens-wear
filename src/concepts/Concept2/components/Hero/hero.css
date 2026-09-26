@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .c2-hero-section {
-  padding: 16px 0 32px 0;
+  padding: 0 0 32px 0;
   background-color: var(--c2-bg-ivory);
   position: relative;
   overflow: hidden;
@@ -14,24 +14,23 @@
 .c2-hero-full-container {
   width: 100%;
   max-width: 100%;
-  padding: 0 24px;
-  margin: 0 auto;
+  padding: 0 16px 0 0;
+  margin: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(370px, 0.95fr) 140px;
-  gap: 14px;
+  grid-template-columns: minmax(0, 1.65fr) minmax(360px, 0.95fr) 140px;
+  gap: 12px;
   align-items: stretch;
-  min-height: 560px;
+  min-height: 600px;
 }
 
-/* Panoramic Hero Card Container (Left) */
+/* Panoramic Hero Card Container (Left - Stretched completely to the left screen edge) */
 .c2-hero-banner {
   position: relative;
   height: 100%;
-  min-height: 560px;
-  border-radius: 3px;
+  min-height: 600px;
+  border-radius: 0;
   overflow: hidden;
   background-color: #F4EFEA;
-  box-shadow: 0 4px 20px rgba(33, 24, 21, 0.08);
   display: flex;
   align-items: center;
 }
@@ -42,10 +41,11 @@
   top: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 68% center;
+  object-position: 70% center;
   z-index: 1;
   transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -62,11 +62,11 @@
   background: linear-gradient(
     90deg,
     #F4EFEA 0%,
-    #F4EFEA 30%,
-    rgba(244, 239, 234, 0.95) 44%,
-    rgba(244, 239, 234, 0.58) 56%,
-    rgba(244, 239, 234, 0.08) 68%,
-    transparent 78%
+    #F4EFEA 32%,
+    rgba(244, 239, 234, 0.95) 45%,
+    rgba(244, 239, 234, 0.60) 58%,
+    rgba(244, 239, 234, 0.10) 70%,
+    transparent 80%
   );
   pointer-events: none;
 }
@@ -75,8 +75,8 @@
 .c2-hero-banner-content {
   position: relative;
   z-index: 3;
-  padding: 44px 38px;
-  max-width: 480px;
+  padding: 48px 44px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
 }
@@ -115,7 +115,7 @@
   line-height: 1.58;
   color: #554740;
   margin: 0 0 26px 0;
-  max-width: 390px;
+  max-width: 400px;
 }
 
 /* Action Buttons Matching Reference */
@@ -212,17 +212,16 @@
 .c2-hero-right-stack {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   height: 100%;
 }
 
 .c2-hero-card {
   position: relative;
   overflow: hidden;
-  border-radius: 3px;
+  border-radius: 2px;
   background-color: var(--c2-bg-stone);
   cursor: pointer;
-  box-shadow: 0 4px 18px rgba(33, 24, 21, 0.08);
 }
 
 .c2-hero-card img {
@@ -251,7 +250,7 @@
   min-height: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 12px;
 }
 
 .c2-hero-card-split {
@@ -292,7 +291,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-left: 10px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .c2-tagline-serif {
@@ -329,8 +329,8 @@
 @media (max-width: 1380px) {
   .c2-hero-full-container {
     grid-template-columns: minmax(0, 1.5fr) minmax(340px, 1fr) 120px;
-    gap: 12px;
-    padding: 0 18px;
+    gap: 10px;
+    padding: 0 12px 0 0;
   }
   .c2-tagline-serif {
     font-size: 28px;
@@ -343,6 +343,7 @@
 @media (max-width: 1100px) {
   .c2-hero-full-container {
     grid-template-columns: minmax(0, 1.5fr) minmax(320px, 1fr);
+    padding: 0 10px 0 0;
   }
   .c2-hero-tagline {
     display: none;
@@ -352,9 +353,9 @@
 @media (max-width: 900px) {
   .c2-hero-full-container {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
     min-height: auto;
-    padding: 0 16px;
+    padding: 0;
   }
   .c2-hero-banner {
     min-height: 480px;
@@ -378,15 +379,16 @@
   }
   .c2-hero-right-stack {
     height: 400px;
+    padding: 0 12px;
   }
 }
 
 @media (max-width: 640px) {
   .c2-hero-section {
-    padding: 12px 0 28px 0;
+    padding: 0 0 24px 0;
   }
   .c2-hero-full-container {
-    padding: 0 12px;
+    padding: 0;
   }
   .c2-hero-banner {
     min-height: auto;
@@ -435,6 +437,7 @@
     height: auto;
     order: 3;
     gap: 12px;
+    padding: 0 12px;
   }
   .c2-hero-card-top {
     height: 200px;
