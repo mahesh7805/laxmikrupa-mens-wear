@@ -13,24 +13,26 @@
 /* Two-column hero container: Left Panoramic Banner + Right 3-Image Stack */
 .c2-hero-container {
   display: grid;
-  grid-template-columns: minmax(0, 1.85fr) minmax(360px, 1fr);
-  gap: 16px;
+  grid-template-columns: minmax(0, 1.7fr) minmax(380px, 1fr);
+  gap: 14px;
   align-items: stretch;
+  min-height: 540px;
 }
 
 /* Panoramic Hero Card Container (Left) */
 .c2-hero-banner {
   position: relative;
+  height: 100%;
   min-height: 540px;
   border-radius: 3px;
   overflow: hidden;
   background-color: #F4EFEA;
-  box-shadow: 0 6px 24px rgba(33, 24, 21, 0.08);
+  box-shadow: 0 4px 20px rgba(33, 24, 21, 0.08);
   display: flex;
   align-items: center;
 }
 
-/* Background Image: Model Standing in Archway stretched from right across center */
+/* Background Image: Model in Olive Shirt & Sunglasses clearly visible on right */
 .c2-hero-banner-img {
   position: absolute;
   top: 0;
@@ -39,7 +41,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 84% center;
+  object-position: 68% center;
   z-index: 1;
   transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -48,7 +50,7 @@
   transform: scale(1.02);
 }
 
-/* Smooth Warm Cream/Ivory Gradient Scrim fading smoothly over the left photo */
+/* Smooth Warm Cream/Ivory Gradient Scrim fading over left side for crisp text */
 .c2-hero-banner-fade {
   position: absolute;
   inset: 0;
@@ -56,11 +58,11 @@
   background: linear-gradient(
     90deg,
     #F4EFEA 0%,
-    #F4EFEA 32%,
-    rgba(244, 239, 234, 0.96) 46%,
-    rgba(244, 239, 234, 0.68) 60%,
-    rgba(244, 239, 234, 0.18) 76%,
-    transparent 92%
+    #F4EFEA 28%,
+    rgba(244, 239, 234, 0.95) 42%,
+    rgba(244, 239, 234, 0.55) 54%,
+    rgba(244, 239, 234, 0.08) 66%,
+    transparent 76%
   );
   pointer-events: none;
 }
@@ -69,8 +71,8 @@
 .c2-hero-banner-content {
   position: relative;
   z-index: 3;
-  padding: 48px 44px;
-  max-width: 530px;
+  padding: 44px 40px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
 }
@@ -82,17 +84,17 @@
   letter-spacing: 0.22em;
   color: #7A6D65;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .c2-hero-title {
   font-family: var(--c2-font-serif);
-  font-size: clamp(48px, 4.4vw, 68px);
+  font-size: clamp(46px, 4.2vw, 64px);
   font-weight: 400;
-  line-height: 0.94;
+  line-height: 0.95;
   color: #1E1511;
   letter-spacing: -0.035em;
-  margin: 0 0 20px 0;
+  margin: 0 0 18px 0;
 }
 
 .c2-hero-title em {
@@ -108,8 +110,8 @@
   font-size: 15px;
   line-height: 1.58;
   color: #554740;
-  margin: 0 0 28px 0;
-  max-width: 410px;
+  margin: 0 0 26px 0;
+  max-width: 390px;
 }
 
 /* Action Buttons Matching Reference */
@@ -117,7 +119,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
   flex-wrap: wrap;
 }
 
@@ -129,7 +131,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 14px 24px;
+  padding: 13px 24px;
   border-radius: 2px;
   border: 1px solid #1E1511;
   display: inline-flex;
@@ -155,7 +157,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 13px 22px;
+  padding: 12px 22px;
   border-radius: 2px;
   border: 1px solid rgba(30, 21, 17, 0.45);
   display: inline-flex;
@@ -174,7 +176,7 @@
 .c2-hero-features-row {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   padding-top: 4px;
 }
 
@@ -182,7 +184,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--c2-font-sans);
-  font-size: 9.5px;
+  font-size: 9px;
   letter-spacing: 0.12em;
   line-height: 1.35;
   color: #6D5E56;
@@ -196,7 +198,7 @@
 
 .c2-hero-feature-divider {
   width: 1px;
-  height: 22px;
+  height: 20px;
   background-color: rgba(30, 21, 17, 0.2);
 }
 
@@ -207,7 +209,7 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  height: 540px;
+  height: 100%;
 }
 
 .c2-hero-card {
@@ -223,7 +225,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
   display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -233,18 +234,28 @@
 }
 
 .c2-hero-card-top {
-  height: 260px;
+  flex: 1;
+  min-height: 0;
+}
+
+.c2-hero-card-top img {
+  object-position: center 20%;
 }
 
 .c2-hero-bottom-split {
+  flex: 1;
+  min-height: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
-  height: 266px;
 }
 
 .c2-hero-card-split {
   height: 100%;
+}
+
+.c2-hero-card-split img {
+  object-position: center center;
 }
 
 /* Overlays on Right Stack Cards */
@@ -253,20 +264,20 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px 16px 14px 16px;
-  background: linear-gradient(to top, rgba(20, 12, 10, 0.78) 0%, rgba(20, 12, 10, 0) 100%);
+  padding: 16px 14px 12px 14px;
+  background: linear-gradient(to top, rgba(20, 12, 10, 0.76) 0%, rgba(20, 12, 10, 0) 100%);
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: var(--c2-font-serif);
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 500;
   transition: padding-left 0.25s ease;
 }
 
 .c2-hero-card:hover .c2-hero-card-overlay {
-  padding-left: 20px;
+  padding-left: 18px;
 }
 
 /* ==========================================================================
@@ -274,62 +285,50 @@
    ========================================================================== */
 @media (max-width: 1200px) {
   .c2-hero-container {
-    grid-template-columns: minmax(0, 1.6fr) minmax(320px, 1fr);
-    gap: 14px;
-  }
-  .c2-hero-banner,
-  .c2-hero-right-stack {
-    height: 500px;
+    grid-template-columns: minmax(0, 1.55fr) minmax(330px, 1fr);
+    gap: 12px;
     min-height: 500px;
   }
-  .c2-hero-card-top {
-    height: 240px;
-  }
-  .c2-hero-bottom-split {
-    height: 246px;
+  .c2-hero-banner {
+    min-height: 500px;
   }
   .c2-hero-banner-content {
-    padding: 38px 32px;
-    max-width: 480px;
+    padding: 36px 30px;
+    max-width: 440px;
   }
   .c2-hero-title {
-    font-size: 52px;
+    font-size: 48px;
   }
 }
 
 @media (max-width: 960px) {
   .c2-hero-container {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 16px;
+    min-height: auto;
   }
   .c2-hero-banner {
     min-height: 480px;
     height: auto;
   }
   .c2-hero-banner-img {
-    object-position: 88% center;
+    object-position: 72% center;
   }
   .c2-hero-banner-fade {
     background: linear-gradient(
       90deg,
       #F4EFEA 0%,
-      #F4EFEA 40%,
-      rgba(244, 239, 234, 0.94) 58%,
-      rgba(244, 239, 234, 0.55) 76%,
-      transparent 100%
+      #F4EFEA 38%,
+      rgba(244, 239, 234, 0.94) 54%,
+      rgba(244, 239, 234, 0.45) 70%,
+      transparent 90%
     );
   }
   .c2-hero-title {
-    font-size: 46px;
+    font-size: 44px;
   }
   .c2-hero-right-stack {
-    height: 380px;
-  }
-  .c2-hero-card-top {
-    height: 180px;
-  }
-  .c2-hero-bottom-split {
-    height: 186px;
+    height: 400px;
   }
 }
 
@@ -344,7 +343,7 @@
   }
   .c2-hero-banner-img {
     position: relative;
-    height: 340px;
+    height: 320px;
     object-position: center 25%;
     order: 2;
   }
@@ -352,22 +351,22 @@
     display: none;
   }
   .c2-hero-banner-content {
-    padding: 32px 20px 24px 20px;
+    padding: 28px 18px 22px 18px;
     max-width: 100%;
     order: 1;
     background-color: #F4EFEA;
   }
   .c2-hero-title {
-    font-size: 40px;
+    font-size: 38px;
   }
   .c2-hero-description {
-    font-size: 14px;
-    margin-bottom: 22px;
+    font-size: 13.5px;
+    margin-bottom: 20px;
   }
   .c2-hero-ctas {
     flex-direction: column;
     align-items: stretch;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
   }
   .c2-btn-dark,
   .c2-btn-outline {
@@ -375,7 +374,7 @@
   }
   .c2-hero-features-row {
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 12px;
   }
   .c2-hero-feature-divider {
     display: none;
@@ -383,11 +382,14 @@
   .c2-hero-right-stack {
     height: auto;
     order: 3;
+    gap: 12px;
   }
   .c2-hero-card-top {
-    height: 170px;
+    height: 200px;
+    flex: none;
   }
   .c2-hero-bottom-split {
-    height: 160px;
+    height: 180px;
+    flex: none;
   }
 }
