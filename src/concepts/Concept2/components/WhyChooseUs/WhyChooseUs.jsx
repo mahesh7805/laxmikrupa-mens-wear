@@ -37,12 +37,8 @@ export function WhyChooseUs() {
       <div className="c2-why-bg-gradient" />
 
       <div className="concept2-container c2-why-container">
-        {/* Left Column: Numbered Badge & Heading */}
+        {/* Left Column: Heading */}
         <div className="c2-why-left-header">
-          <div className="c2-why-badge">
-            <span>02</span>
-            <span className="c2-why-badge-line" />
-          </div>
           <h2 className="c2-why-heading">Why Choose Us</h2>
           <span className="c2-why-subheading">YOUR TRUST, OUR STRENGTH</span>
         </div>
