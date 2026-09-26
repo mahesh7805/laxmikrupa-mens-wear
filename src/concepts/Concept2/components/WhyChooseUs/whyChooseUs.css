@@ -1,80 +1,137 @@
 /* ==========================================================================
-   CONCEPT 2: WHY CHOOSE US STYLES (Strict Reference Match)
+   CONCEPT 2: WHY CHOOSE US STYLES (Horizontal Banner Reference Match)
    ========================================================================== */
 
 .c2-why-section {
-  padding: 65px 0 75px 0;
-  background-color: var(--c2-dark-espresso);
-  background-image: radial-gradient(circle at 50% 30%, var(--c2-dark-brown) 0%, var(--c2-darkest-brown) 100%);
+  padding: 50px 0;
+  background-color: #1A0F0A;
   color: var(--c2-text-light);
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
-.c2-why-header {
-  margin-bottom: 40px;
+.c2-why-bg-texture {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 55%;
+  background-size: cover;
+  background-position: right center;
+  opacity: 0.28;
+  z-index: 1;
 }
 
-.c2-number-badge-light {
-  color: var(--c2-text-muted) !important;
+.c2-why-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #180D08 0%,
+    #1E110A 28%,
+    rgba(30, 17, 10, 0.94) 55%,
+    rgba(30, 17, 10, 0.82) 80%,
+    rgba(30, 17, 10, 0.72) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
 }
 
-.c2-number-badge-light::after {
-  background-color: var(--c2-text-muted) !important;
+.c2-why-container {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+}
+
+/* Left Header */
+.c2-why-left-header {
+  min-width: 250px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.c2-why-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--c2-font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--c2-accent-brass);
+  margin-bottom: 8px;
+}
+
+.c2-why-badge-line {
+  width: 28px;
+  height: 1px;
+  background-color: var(--c2-accent-brass);
+  opacity: 0.7;
 }
 
 .c2-why-heading {
   font-family: var(--c2-font-serif);
-  font-size: 42px;
+  font-size: clamp(34px, 3.2vw, 44px);
   font-weight: 500;
-  color: var(--c2-text-light);
+  color: #FFFFFF;
   margin: 0 0 6px 0;
   letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .c2-why-subheading {
   font-family: var(--c2-font-sans);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   color: var(--c2-accent-brass);
   text-transform: uppercase;
 }
 
-/* 4 Feature Columns */
-.c2-why-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  position: relative;
+/* Vertical Main Divider Line */
+.c2-why-main-divider {
+  width: 1px;
+  height: 110px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 36px;
+  flex-shrink: 0;
+}
+
+/* 4 Feature Columns Row */
+.c2-why-features-row {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.c2-why-col-divider {
+  width: 1px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 10px 18px 0 18px;
+  flex-shrink: 0;
 }
 
 .c2-why-col {
-  padding: 10px 28px;
+  flex: 1;
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  position: relative;
-}
-
-.c2-why-col:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  top: 10%;
-  right: 0;
-  width: 1px;
-  height: 80%;
-  background-color: var(--c2-border-dark);
 }
 
 .c2-why-icon-wrap {
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
-  color: var(--c2-accent-brass);
+  margin-bottom: 12px;
+  color: #D4B285;
 }
 
 .c2-why-icon {
@@ -83,41 +140,83 @@
 
 .c2-why-col-title {
   font-family: var(--c2-font-serif);
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 500;
-  color: var(--c2-text-light);
-  margin: 0 0 10px 0;
+  color: #FFFFFF;
+  margin: 0 0 6px 0;
   letter-spacing: 0.01em;
 }
 
 .c2-why-col-desc {
   font-family: var(--c2-font-sans);
-  font-size: 13.5px;
-  line-height: 1.55;
-  color: #C5B8AB;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #C2B3A6;
   margin: 0;
-  max-width: 240px;
+  max-width: 220px;
 }
 
-@media (max-width: 1024px) {
-  .c2-why-grid {
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 36px;
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .c2-why-main-divider {
+    margin: 0 20px;
   }
-  .c2-why-col:nth-child(2)::after {
+  .c2-why-col-divider {
+    margin: 10px 10px 0 10px;
+  }
+  .c2-why-left-header {
+    min-width: 210px;
+  }
+  .c2-why-heading {
+    font-size: 32px;
+  }
+  .c2-why-col-title {
+    font-size: 15.5px;
+  }
+  .c2-why-col-desc {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 980px) {
+  .c2-why-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .c2-why-main-divider {
     display: none;
   }
-}
-
-@media (max-width: 640px) {
-  .c2-why-grid {
-    grid-template-columns: 1fr;
-    row-gap: 32px;
+  .c2-why-left-header {
+    margin-bottom: 30px;
   }
-  .c2-why-col::after {
-    display: none !important;
+  .c2-why-features-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    width: 100%;
+  }
+  .c2-why-col-divider {
+    display: none;
   }
   .c2-why-col {
     padding: 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .c2-why-section {
+    padding: 40px 0;
+  }
+  .c2-why-features-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .c2-why-col {
+    align-items: flex-start;
+    text-align: left;
   }
 }

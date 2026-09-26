@@ -1,84 +1,159 @@
 /* ==========================================================================
-   CONCEPT 2: THE FESTIVE EDIT BANNER STYLES
+   CONCEPT 2: THE FESTIVE EDIT BANNER STYLES (Reference Match)
    ========================================================================== */
 
 .c2-festive-section {
-  padding: 30px 0 50px 0;
-  background-color: var(--c2-bg-warm);
+  padding: 40px 0 60px 0;
+  background-color: var(--c2-bg-ivory);
+  position: relative;
+  overflow: hidden;
 }
 
 .c2-festive-banner {
-  background: linear-gradient(135deg, #2D1A10 0%, #1A0E08 50%, #26140B 100%);
-  border-radius: 6px;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 300px 1fr 300px;
-  align-items: center;
   position: relative;
-  box-shadow: 0 16px 40px rgba(27, 18, 11, 0.18);
-  border: 1px solid rgba(194, 155, 98, 0.25);
-}
-
-.c2-festive-image-wrap {
-  width: 100%;
-  height: 240px;
+  min-height: 240px;
+  border-radius: 4px;
   overflow: hidden;
+  background-color: #1A0D08;
+  box-shadow: 0 12px 36px rgba(27, 18, 11, 0.18);
+  display: flex;
+  align-items: center;
 }
 
-.c2-festive-image-wrap img {
+/* Background Image with Palace & Embroidered Kurta Model on Left */
+.c2-festive-bg-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
-  display: block;
+  object-position: left 15%;
+  z-index: 1;
 }
 
-/* Center Content */
+/* Dark Royal Gold/Espresso Scrim for Rich Contrast across text and pillars */
+.c2-festive-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    rgba(20, 10, 6, 0.15) 0%,
+    rgba(20, 10, 6, 0.5) 24%,
+    rgba(20, 10, 6, 0.88) 42%,
+    rgba(20, 10, 6, 0.94) 75%,
+    rgba(20, 10, 6, 0.92) 100%
+  );
+  pointer-events: none;
+}
+
+/* Content Container Row */
+.c2-festive-content-wrap {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 36px 48px;
+}
+
+/* Spacer on the left to let the model stand proud */
+.c2-festive-model-spacer {
+  width: 22%;
+  flex-shrink: 0;
+}
+
+/* Center: Title, Subtitle, and Button */
 .c2-festive-center {
-  padding: 24px 32px;
-  text-align: center;
+  flex: 1.2;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  padding-right: 20px;
 }
 
 .c2-festive-title {
   font-family: var(--c2-font-serif);
   font-style: italic;
-  font-size: 38px;
+  font-size: clamp(38px, 3.6vw, 48px);
   font-weight: 400;
   color: #FFFFFF;
   margin: 0 0 6px 0;
   letter-spacing: 0.01em;
+  line-height: 1.1;
 }
 
 .c2-festive-subtitle {
   font-family: var(--c2-font-sans);
-  font-size: 13.5px;
+  font-size: 14px;
   color: #D6C7BA;
-  margin: 0 0 20px 0;
+  margin: 0 0 18px 0;
+  letter-spacing: 0.02em;
 }
 
-/* Right 3 Occasions */
+.c2-festive-btn {
+  background-color: rgba(20, 10, 6, 0.5);
+  color: #FFFFFF;
+  font-family: var(--c2-font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 11px 24px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.c2-festive-btn:hover {
+  background-color: var(--c2-accent-brass);
+  color: #1A0D08;
+  border-color: var(--c2-accent-brass);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Vertical Main Divider */
+.c2-festive-divider {
+  width: 1px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 32px;
+  flex-shrink: 0;
+}
+
+/* Right: 3 Occasion Pillars */
 .c2-festive-occasions {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 0 24px;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  justify-content: space-between;
+  flex: 1;
+}
+
+.c2-occasion-col-divider {
+  width: 1px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 0 16px;
+  flex-shrink: 0;
 }
 
 .c2-occasion-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  color: var(--c2-gold-light);
-  font-family: var(--c2-font-sans);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
   text-align: center;
+  gap: 8px;
+  color: #FFFFFF;
+  font-family: var(--c2-font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  flex: 1;
 }
 
 .c2-occasion-icon {
@@ -87,32 +162,72 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--c2-gold);
+  color: #D4B285;
 }
 
-@media (max-width: 1024px) {
-  .c2-festive-banner {
-    grid-template-columns: 1fr;
-    text-align: center;
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .c2-festive-content-wrap {
+    padding: 32px 28px;
   }
-  .c2-festive-image-wrap {
-    height: 220px;
+  .c2-festive-model-spacer {
+    width: 18%;
+  }
+  .c2-festive-divider {
+    margin: 0 20px;
+  }
+  .c2-festive-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 960px) {
+  .c2-festive-banner {
+    min-height: auto;
+  }
+  .c2-festive-content-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 36px 24px;
+  }
+  .c2-festive-model-spacer {
+    display: none;
+  }
+  .c2-festive-scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(20, 10, 6, 0.72) 0%,
+      rgba(20, 10, 6, 0.92) 100%
+    );
+  }
+  .c2-festive-center {
+    align-items: center;
+    text-align: center;
+    padding-right: 0;
+    margin-bottom: 28px;
+  }
+  .c2-festive-divider {
+    display: none;
   }
   .c2-festive-occasions {
-    border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 24px;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 600px) {
   .c2-festive-title {
     font-size: 30px;
   }
-  .c2-festive-occasions {
-    gap: 16px;
+  .c2-festive-subtitle {
+    font-size: 13px;
+  }
+  .c2-occasion-col-divider {
+    margin: 0 8px;
   }
   .c2-occasion-item span {
-    font-size: 10px;
+    font-size: 11px;
   }
 }

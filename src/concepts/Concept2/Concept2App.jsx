@@ -7,6 +7,7 @@ import { WhoWeAre } from './components/WhoWeAre/WhoWeAre';
 import { WhyChooseUs } from './components/WhyChooseUs/WhyChooseUs';
 import { ShopByCategory } from './components/ShopByCategory/ShopByCategory';
 import { NewArrivals } from './components/NewArrivals/NewArrivals';
+import { FestiveEdit } from './components/FestiveEdit/FestiveEdit';
 import { StoreLocator } from './components/StoreLocator/StoreLocator';
 import { Contact } from './components/Contact/Contact';
 import { Footer } from './components/Footer/Footer';
@@ -111,10 +112,13 @@ export function Concept2App() {
           onAddToCart={handleAddToCart}
         />
 
-        {/* 7. Section 04: Visit Our Store */}
+        {/* 7. Section: The Festive Edit (Royal Palace Banner) */}
+        <FestiveEdit />
+
+        {/* 8. Section 04: Visit Our Store */}
         <StoreLocator />
 
-        {/* 8. Section 05: Reach Out To Us */}
+        {/* 9. Section 05: Reach Out To Us */}
         <Contact />
       </main>
 

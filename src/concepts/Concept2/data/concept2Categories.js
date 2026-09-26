@@ -41,12 +41,4 @@ export const CONCEPT2_CATEGORIES = [
     count: '28+ Styles',
     link: '#categories',
   },
-  {
-    id: 'c2-cat-6',
-    name: 'Festive',
-    slug: 'festive',
-    image: getAssetPath('/assets/concept-2/festive_group_category.jpg'),
-    count: '20+ Sets',
-    link: '#categories',
-  },
 ];
