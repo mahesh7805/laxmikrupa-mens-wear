@@ -1,19 +1,24 @@
 /* ==========================================================================
-   CONCEPT 2: HERO STYLES (Panoramic Banner + 3-Image Collage Reference)
+   CONCEPT 2: HERO STYLES (Full-Screen Panoramic Banner + 3-Card Collage + Tagline)
    ========================================================================== */
 
 .c2-hero-section {
-  padding: 20px 0 40px 0;
+  padding: 16px 0 32px 0;
   background-color: var(--c2-bg-ivory);
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
-/* Two-column hero container: Left Panoramic Banner + Right 3-Image Stack */
-.c2-hero-container {
+/* Full-Screen Edge-to-Edge Hero Grid Container */
+.c2-hero-full-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 24px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.8fr) minmax(400px, 1fr);
-  gap: 16px;
+  grid-template-columns: minmax(0, 1.6fr) minmax(370px, 0.95fr) 140px;
+  gap: 14px;
   align-items: stretch;
   min-height: 560px;
 }
@@ -22,7 +27,7 @@
 .c2-hero-banner {
   position: relative;
   height: 100%;
-  min-height: 540px;
+  min-height: 560px;
   border-radius: 3px;
   overflow: hidden;
   background-color: #F4EFEA;
@@ -57,11 +62,11 @@
   background: linear-gradient(
     90deg,
     #F4EFEA 0%,
-    #F4EFEA 28%,
-    rgba(244, 239, 234, 0.95) 42%,
-    rgba(244, 239, 234, 0.55) 54%,
-    rgba(244, 239, 234, 0.08) 66%,
-    transparent 76%
+    #F4EFEA 30%,
+    rgba(244, 239, 234, 0.95) 44%,
+    rgba(244, 239, 234, 0.58) 56%,
+    rgba(244, 239, 234, 0.08) 68%,
+    transparent 78%
   );
   pointer-events: none;
 }
@@ -70,8 +75,8 @@
 .c2-hero-banner-content {
   position: relative;
   z-index: 3;
-  padding: 44px 40px;
-  max-width: 500px;
+  padding: 44px 38px;
+  max-width: 480px;
   display: flex;
   flex-direction: column;
 }
@@ -79,7 +84,7 @@
 .c2-hero-eyebrow {
   font-family: var(--c2-font-sans);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.22em;
   color: #7A6D65;
   text-transform: uppercase;
@@ -88,9 +93,9 @@
 
 .c2-hero-title {
   font-family: var(--c2-font-serif);
-  font-size: clamp(46px, 4.2vw, 64px);
+  font-size: clamp(48px, 4.4vw, 68px);
   font-weight: 400;
-  line-height: 0.95;
+  line-height: 0.92;
   color: #1E1511;
   letter-spacing: -0.035em;
   margin: 0 0 18px 0;
@@ -202,7 +207,7 @@
 }
 
 /* ==========================================================================
-   Right 3-Image Stack
+   Center-Right 3-Image Stack
    ========================================================================== */
 .c2-hero-right-stack {
   display: flex;
@@ -280,31 +285,76 @@
 }
 
 /* ==========================================================================
+   Far Right Editorial Tagline Accent
+   ========================================================================== */
+.c2-hero-tagline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 10px;
+}
+
+.c2-tagline-serif {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Caveat', cursive;
+  font-size: 32px;
+  line-height: 1.1;
+  color: var(--c2-accent-burgundy);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.c2-tagline-script {
+  font-family: 'Caveat', cursive;
+  font-size: 26px;
+  line-height: 1.1;
+  color: var(--c2-accent-burgundy);
+  font-weight: 600;
+  transform: rotate(-3deg);
+  margin-bottom: 12px;
+}
+
+.c2-tagline-line {
+  width: 38px;
+  height: 1.5px;
+  background-color: var(--c2-accent-burgundy);
+  opacity: 0.6;
+}
+
+/* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
-@media (max-width: 1200px) {
-  .c2-hero-container {
-    grid-template-columns: minmax(0, 1.55fr) minmax(330px, 1fr);
+@media (max-width: 1380px) {
+  .c2-hero-full-container {
+    grid-template-columns: minmax(0, 1.5fr) minmax(340px, 1fr) 120px;
     gap: 12px;
-    min-height: 500px;
+    padding: 0 18px;
   }
-  .c2-hero-banner {
-    min-height: 500px;
+  .c2-tagline-serif {
+    font-size: 28px;
   }
-  .c2-hero-banner-content {
-    padding: 36px 30px;
-    max-width: 440px;
-  }
-  .c2-hero-title {
-    font-size: 48px;
+  .c2-tagline-script {
+    font-size: 23px;
   }
 }
 
-@media (max-width: 960px) {
-  .c2-hero-container {
+@media (max-width: 1100px) {
+  .c2-hero-full-container {
+    grid-template-columns: minmax(0, 1.5fr) minmax(320px, 1fr);
+  }
+  .c2-hero-tagline {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .c2-hero-full-container {
     grid-template-columns: 1fr;
     gap: 16px;
     min-height: auto;
+    padding: 0 16px;
   }
   .c2-hero-banner {
     min-height: 480px;
@@ -333,7 +383,10 @@
 
 @media (max-width: 640px) {
   .c2-hero-section {
-    padding: 16px 0 32px 0;
+    padding: 12px 0 28px 0;
+  }
+  .c2-hero-full-container {
+    padding: 0 12px;
   }
   .c2-hero-banner {
     min-height: auto;

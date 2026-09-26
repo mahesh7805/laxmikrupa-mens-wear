@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, ArrowRight } from '@phosphor-icons/react';
+import { ArrowRight } from '@phosphor-icons/react';
 import { getAssetPath } from '../../../../utils/assetPath';
 import './hero.css';
 
@@ -19,7 +19,7 @@ export function Hero({ onExploreClick, onShopClick }) {
 
   return (
     <section id="hero" className="c2-hero-section">
-      <div className="concept2-container c2-hero-container">
+      <div className="c2-hero-full-container">
         {/* Left: Stretched Panoramic Hero Banner */}
         <div className="c2-hero-banner">
           {/* Main Tall Standing Model Photo stretched across right & center */}
@@ -36,12 +36,12 @@ export function Hero({ onExploreClick, onShopClick }) {
           {/* Left-Aligned Editorial Text Content */}
           <div className="c2-hero-banner-content">
             <span className="c2-hero-eyebrow">
-              LAXMIKRUPA EMPORIUM // MEN'S WEAR // SURAT
+              STYLE • COMFORT • CONFIDENCE
             </span>
 
             <h1 className="c2-hero-title">
-              Style for<br />
-              <em>every side of you.</em>
+              For Every<br />
+              <em>Occasion</em>
             </h1>
 
             <p className="c2-hero-description">
@@ -55,7 +55,7 @@ export function Hero({ onExploreClick, onShopClick }) {
                 onClick={() => handleScrollTo('new-arrivals')}
               >
                 <span>Shop Men's Wear</span>
-                <ArrowUpRight size={16} weight="bold" />
+                <ArrowRight size={15} weight="bold" />
               </button>
 
               <button
@@ -86,7 +86,7 @@ export function Hero({ onExploreClick, onShopClick }) {
           </div>
         </div>
 
-        {/* Right: 3-Image Stack matching reference */}
+        {/* Center-Right: 3-Image Collage Stack matching reference */}
         <div className="c2-hero-right-stack">
           {/* Top Card: Festive Moments */}
           <div
@@ -99,6 +99,7 @@ export function Hero({ onExploreClick, onShopClick }) {
             />
             <div className="c2-hero-card-overlay">
               <span>Festive Moments</span>
+              <ArrowRight size={14} weight="bold" />
             </div>
           </div>
 
@@ -130,9 +131,23 @@ export function Hero({ onExploreClick, onShopClick }) {
               />
               <div className="c2-hero-card-overlay">
                 <span>Casual Comfort</span>
+                <ArrowRight size={13} weight="bold" />
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Far Right: Editorial Calligraphic Tagline Accent */}
+        <div className="c2-hero-tagline">
+          <div className="c2-tagline-serif">
+            <span>More</span>
+            <span>than just</span>
+            <span>clothing.</span>
+          </div>
+          <div className="c2-tagline-script">
+            It's a feeling.
+          </div>
+          <div className="c2-tagline-line" />
         </div>
       </div>
     </section>
