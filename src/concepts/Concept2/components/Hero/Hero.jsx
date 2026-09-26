@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight } from '@phosphor-icons/react';
+import { ArrowUpRight, ArrowRight } from '@phosphor-icons/react';
 import { getAssetPath } from '../../../../utils/assetPath';
 import './hero.css';
 
@@ -19,8 +19,8 @@ export function Hero({ onExploreClick, onShopClick }) {
 
   return (
     <section id="hero" className="c2-hero-section">
-      <div className="concept2-container">
-        {/* Full-width Panoramic Hero Banner matching reference */}
+      <div className="concept2-container c2-hero-container">
+        {/* Left: Stretched Panoramic Hero Banner */}
         <div className="c2-hero-banner">
           {/* Main Tall Standing Model Photo stretched across right & center */}
           <img
@@ -81,6 +81,55 @@ export function Hero({ onExploreClick, onShopClick }) {
               <div className="c2-hero-feature-item">
                 <strong>GROUP &amp; BULK</strong>
                 <span>ORDERS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right: 3-Image Stack matching reference */}
+        <div className="c2-hero-right-stack">
+          {/* Top Card: Festive Moments */}
+          <div
+            className="c2-hero-card c2-hero-card-top"
+            onClick={() => handleScrollTo('festive-edit')}
+          >
+            <img
+              src={getAssetPath('/assets/concept-2/hero-festive.jpg')}
+              alt="Festive Moments - Handcrafted Kurta"
+            />
+            <div className="c2-hero-card-overlay">
+              <span>Festive Moments</span>
+            </div>
+          </div>
+
+          {/* Bottom Split Row (Everyday Essentials + Casual Comfort) */}
+          <div className="c2-hero-bottom-split">
+            {/* Left Split Card: Everyday Essentials */}
+            <div
+              className="c2-hero-card c2-hero-card-split"
+              onClick={() => handleScrollTo('new-arrivals')}
+            >
+              <img
+                src={getAssetPath('/assets/concept-2/hero-everyday.jpg')}
+                alt="Everyday Essentials"
+              />
+              <div className="c2-hero-card-overlay">
+                <span>Everyday Essentials</span>
+                <ArrowRight size={13} weight="bold" />
+              </div>
+            </div>
+
+            {/* Right Split Card: Casual Comfort */}
+            <div
+              className="c2-hero-card c2-hero-card-split"
+              onClick={() => handleScrollTo('categories')}
+            >
+              <img
+                src={getAssetPath('/assets/concept-2/hero-casual.jpg')}
+                alt="Casual Comfort Denim and Trousers"
+              />
+              <div className="c2-hero-card-overlay">
+                <span>Casual Comfort</span>
               </div>
             </div>
           </div>

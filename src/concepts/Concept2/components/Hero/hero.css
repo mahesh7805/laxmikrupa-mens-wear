@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CONCEPT 2: HERO STYLES (Panoramic Editorial Reference Recreation)
+   CONCEPT 2: HERO STYLES (Panoramic Banner + 3-Image Collage Reference)
    ========================================================================== */
 
 .c2-hero-section {
@@ -10,14 +10,22 @@
   border-bottom: 1px solid var(--c2-border-beige);
 }
 
-/* Panoramic Hero Card Container */
+/* Two-column hero container: Left Panoramic Banner + Right 3-Image Stack */
+.c2-hero-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(360px, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* Panoramic Hero Card Container (Left) */
 .c2-hero-banner {
   position: relative;
-  min-height: 560px;
+  min-height: 540px;
   border-radius: 3px;
   overflow: hidden;
   background-color: #F4EFEA;
-  box-shadow: 0 6px 26px rgba(33, 24, 21, 0.08);
+  box-shadow: 0 6px 24px rgba(33, 24, 21, 0.08);
   display: flex;
   align-items: center;
 }
@@ -48,11 +56,11 @@
   background: linear-gradient(
     90deg,
     #F4EFEA 0%,
-    #F4EFEA 30%,
-    rgba(244, 239, 234, 0.96) 44%,
-    rgba(244, 239, 234, 0.72) 58%,
-    rgba(244, 239, 234, 0.22) 74%,
-    transparent 90%
+    #F4EFEA 32%,
+    rgba(244, 239, 234, 0.96) 46%,
+    rgba(244, 239, 234, 0.68) 60%,
+    rgba(244, 239, 234, 0.18) 76%,
+    transparent 92%
   );
   pointer-events: none;
 }
@@ -61,8 +69,8 @@
 .c2-hero-banner-content {
   position: relative;
   z-index: 3;
-  padding: 56px 52px;
-  max-width: 580px;
+  padding: 48px 44px;
+  max-width: 530px;
   display: flex;
   flex-direction: column;
 }
@@ -74,17 +82,17 @@
   letter-spacing: 0.22em;
   color: #7A6D65;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .c2-hero-title {
   font-family: var(--c2-font-serif);
-  font-size: clamp(54px, 5.2vw, 76px);
+  font-size: clamp(48px, 4.4vw, 68px);
   font-weight: 400;
   line-height: 0.94;
   color: #1E1511;
   letter-spacing: -0.035em;
-  margin: 0 0 22px 0;
+  margin: 0 0 20px 0;
 }
 
 .c2-hero-title em {
@@ -97,19 +105,19 @@
 
 .c2-hero-description {
   font-family: var(--c2-font-sans);
-  font-size: 15.5px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.58;
   color: #554740;
-  margin: 0 0 32px 0;
-  max-width: 440px;
+  margin: 0 0 28px 0;
+  max-width: 410px;
 }
 
 /* Action Buttons Matching Reference */
 .c2-hero-ctas {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 38px;
+  gap: 12px;
+  margin-bottom: 32px;
   flex-wrap: wrap;
 }
 
@@ -119,9 +127,9 @@
   font-family: var(--c2-font-sans);
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 15px 28px;
+  padding: 14px 24px;
   border-radius: 2px;
   border: 1px solid #1E1511;
   display: inline-flex;
@@ -145,9 +153,9 @@
   font-family: var(--c2-font-sans);
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 14px 26px;
+  padding: 13px 22px;
   border-radius: 2px;
   border: 1px solid rgba(30, 21, 17, 0.45);
   display: inline-flex;
@@ -166,16 +174,16 @@
 .c2-hero-features-row {
   display: flex;
   align-items: center;
-  gap: 22px;
-  padding-top: 6px;
+  gap: 18px;
+  padding-top: 4px;
 }
 
 .c2-hero-feature-item {
   display: flex;
   flex-direction: column;
   font-family: var(--c2-font-sans);
-  font-size: 10px;
-  letter-spacing: 0.14em;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
   line-height: 1.35;
   color: #6D5E56;
   text-transform: uppercase;
@@ -188,29 +196,115 @@
 
 .c2-hero-feature-divider {
   width: 1px;
-  height: 24px;
+  height: 22px;
   background-color: rgba(30, 21, 17, 0.2);
+}
+
+/* ==========================================================================
+   Right 3-Image Stack
+   ========================================================================== */
+.c2-hero-right-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 540px;
+}
+
+.c2-hero-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  background-color: var(--c2-bg-stone);
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(33, 24, 21, 0.08);
+}
+
+.c2-hero-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.c2-hero-card:hover img {
+  transform: scale(1.04);
+}
+
+.c2-hero-card-top {
+  height: 260px;
+}
+
+.c2-hero-bottom-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  height: 266px;
+}
+
+.c2-hero-card-split {
+  height: 100%;
+}
+
+/* Overlays on Right Stack Cards */
+.c2-hero-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 16px 14px 16px;
+  background: linear-gradient(to top, rgba(20, 12, 10, 0.78) 0%, rgba(20, 12, 10, 0) 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--c2-font-serif);
+  font-size: 15px;
+  font-weight: 500;
+  transition: padding-left 0.25s ease;
+}
+
+.c2-hero-card:hover .c2-hero-card-overlay {
+  padding-left: 20px;
 }
 
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 1200px) {
-  .c2-hero-banner {
-    min-height: 520px;
+  .c2-hero-container {
+    grid-template-columns: minmax(0, 1.6fr) minmax(320px, 1fr);
+    gap: 14px;
+  }
+  .c2-hero-banner,
+  .c2-hero-right-stack {
+    height: 500px;
+    min-height: 500px;
+  }
+  .c2-hero-card-top {
+    height: 240px;
+  }
+  .c2-hero-bottom-split {
+    height: 246px;
   }
   .c2-hero-banner-content {
-    padding: 48px 40px;
-    max-width: 520px;
+    padding: 38px 32px;
+    max-width: 480px;
   }
   .c2-hero-title {
-    font-size: 58px;
+    font-size: 52px;
   }
 }
 
 @media (max-width: 960px) {
+  .c2-hero-container {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
   .c2-hero-banner {
-    min-height: 500px;
+    min-height: 480px;
+    height: auto;
   }
   .c2-hero-banner-img {
     object-position: 88% center;
@@ -226,14 +320,20 @@
     );
   }
   .c2-hero-title {
-    font-size: 50px;
+    font-size: 46px;
   }
-  .c2-hero-description {
-    font-size: 14.5px;
+  .c2-hero-right-stack {
+    height: 380px;
+  }
+  .c2-hero-card-top {
+    height: 180px;
+  }
+  .c2-hero-bottom-split {
+    height: 186px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .c2-hero-section {
     padding: 16px 0 32px 0;
   }
@@ -244,7 +344,7 @@
   }
   .c2-hero-banner-img {
     position: relative;
-    height: 380px;
+    height: 340px;
     object-position: center 25%;
     order: 2;
   }
@@ -252,22 +352,22 @@
     display: none;
   }
   .c2-hero-banner-content {
-    padding: 36px 24px 28px 24px;
+    padding: 32px 20px 24px 20px;
     max-width: 100%;
     order: 1;
     background-color: #F4EFEA;
   }
   .c2-hero-title {
-    font-size: 44px;
+    font-size: 40px;
   }
   .c2-hero-description {
     font-size: 14px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
   }
   .c2-hero-ctas {
     flex-direction: column;
     align-items: stretch;
-    margin-bottom: 26px;
+    margin-bottom: 24px;
   }
   .c2-btn-dark,
   .c2-btn-outline {
@@ -275,9 +375,19 @@
   }
   .c2-hero-features-row {
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 14px;
   }
   .c2-hero-feature-divider {
     display: none;
+  }
+  .c2-hero-right-stack {
+    height: auto;
+    order: 3;
+  }
+  .c2-hero-card-top {
+    height: 170px;
+  }
+  .c2-hero-bottom-split {
+    height: 160px;
   }
 }
