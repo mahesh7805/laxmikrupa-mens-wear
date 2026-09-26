@@ -1,21 +1,23 @@
 /* ==========================================================================
-   CONCEPT 2: THE FESTIVE EDIT BANNER STYLES (Reference Match)
+   CONCEPT 2: THE FESTIVE EDIT BANNER STYLES (100% Full-Bleed Edge-to-Edge)
    ========================================================================== */
 
 .c2-festive-section {
-  padding: 40px 0 60px 0;
+  padding: 0;
+  margin: 40px 0 60px 0;
   background-color: var(--c2-bg-ivory);
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .c2-festive-banner {
   position: relative;
-  min-height: 240px;
-  border-radius: 4px;
+  width: 100%;
+  min-height: 270px;
+  border-radius: 0;
   overflow: hidden;
   background-color: #1A0D08;
-  box-shadow: 0 12px 36px rgba(27, 18, 11, 0.18);
   display: flex;
   align-items: center;
 }
@@ -38,11 +40,11 @@
   z-index: 2;
   background: linear-gradient(
     90deg,
-    rgba(20, 10, 6, 0.15) 0%,
-    rgba(20, 10, 6, 0.5) 24%,
-    rgba(20, 10, 6, 0.88) 42%,
-    rgba(20, 10, 6, 0.94) 75%,
-    rgba(20, 10, 6, 0.92) 100%
+    rgba(18, 9, 5, 0.05) 0%,
+    rgba(18, 9, 5, 0.42) 22%,
+    rgba(18, 9, 5, 0.88) 40%,
+    rgba(18, 9, 5, 0.94) 75%,
+    rgba(18, 9, 5, 0.92) 100%
   );
   pointer-events: none;
 }
@@ -54,12 +56,12 @@
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 36px 48px;
+  padding: 40px 60px;
 }
 
-/* Spacer on the left to let the model stand proud */
+/* Spacer on the left to let the model stand clear */
 .c2-festive-model-spacer {
-  width: 22%;
+  width: 25%;
   flex-shrink: 0;
 }
 
@@ -92,7 +94,7 @@
 }
 
 .c2-festive-btn {
-  background-color: rgba(20, 10, 6, 0.5);
+  background-color: rgba(20, 10, 6, 0.45);
   color: #FFFFFF;
   font-family: var(--c2-font-sans);
   font-size: 12px;
@@ -100,7 +102,7 @@
   letter-spacing: 0.04em;
   padding: 11px 24px;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -122,7 +124,7 @@
   width: 1px;
   height: 90px;
   background: rgba(255, 255, 255, 0.15);
-  margin: 0 32px;
+  margin: 0 36px;
   flex-shrink: 0;
 }
 
@@ -170,16 +172,13 @@
    ========================================================================== */
 @media (max-width: 1200px) {
   .c2-festive-content-wrap {
-    padding: 32px 28px;
+    padding: 32px 36px;
   }
   .c2-festive-model-spacer {
-    width: 18%;
+    width: 20%;
   }
   .c2-festive-divider {
-    margin: 0 20px;
-  }
-  .c2-festive-title {
-    font-size: 36px;
+    margin: 0 24px;
   }
 }
 
@@ -198,8 +197,8 @@
   .c2-festive-scrim {
     background: linear-gradient(
       180deg,
-      rgba(20, 10, 6, 0.72) 0%,
-      rgba(20, 10, 6, 0.92) 100%
+      rgba(18, 9, 5, 0.65) 0%,
+      rgba(18, 9, 5, 0.94) 100%
     );
   }
   .c2-festive-center {
@@ -225,9 +224,9 @@
     font-size: 13px;
   }
   .c2-occasion-col-divider {
-    margin: 0 8px;
+    margin: 0 6px;
   }
   .c2-occasion-item span {
-    font-size: 11px;
+    font-size: 10.5px;
   }
 }
