@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight } from '@phosphor-icons/react';
+import { ArrowUpRight } from '@phosphor-icons/react';
 import { getAssetPath } from '../../../../utils/assetPath';
 import './hero.css';
 
@@ -19,118 +19,69 @@ export function Hero({ onExploreClick, onShopClick }) {
 
   return (
     <section id="hero" className="c2-hero-section">
-      <div className="concept2-container c2-hero-container">
-        {/* Left Column: Editorial Headline & Actions */}
-        <div className="c2-hero-left">
-          <span className="c2-hero-eyebrow">STYLE • COMFORT • CONFIDENCE</span>
+      <div className="concept2-container">
+        {/* Full-width Panoramic Hero Banner matching reference */}
+        <div className="c2-hero-banner">
+          {/* Main Tall Standing Model Photo stretched across right & center */}
+          <img
+            src={getAssetPath('/assets/concept-2/hero-main-wide-final.jpg')}
+            alt="Laxmikrupa Men's Wear - Contemporary Everyday Collection"
+            className="c2-hero-banner-img"
+            loading="eager"
+          />
 
-          <h1 className="c2-hero-title">
-            For Every<br />
-            <em>Occasion</em>
-          </h1>
+          {/* Warm Ivory/Cream Gradient Fade Scrim for Left Text Readability */}
+          <div className="c2-hero-banner-fade" />
 
-          <p className="c2-hero-description">
-            From everyday essentials to festive dressing, discover men's wear made for workdays, weekends and everything in between.
-          </p>
+          {/* Left-Aligned Editorial Text Content */}
+          <div className="c2-hero-banner-content">
+            <span className="c2-hero-eyebrow">
+              LAXMIKRUPA EMPORIUM // MEN'S WEAR // SURAT
+            </span>
 
-          <div className="c2-hero-ctas">
-            <button
-              type="button"
-              className="c2-btn-primary"
-              onClick={() => handleScrollTo('categories')}
-            >
-              <span>Explore Collections</span>
-              <ArrowRight size={16} weight="bold" />
-            </button>
-          </div>
+            <h1 className="c2-hero-title">
+              Style for<br />
+              <em>every side of you.</em>
+            </h1>
 
-          <div className="c2-hero-features-row">
-            <div className="c2-hero-feature-item">
-              <strong>EVERYDAY</strong>
-              <span>ESSENTIALS</span>
-            </div>
-            <div className="c2-hero-feature-item">
-              <strong>FESTIVE</strong>
-              <span>COLLECTIONS</span>
-            </div>
-            <div className="c2-hero-feature-item">
-              <strong>GROUP &amp; BULK</strong>
-              <span>ORDERS</span>
-            </div>
-          </div>
-        </div>
+            <p className="c2-hero-description">
+              From everyday essentials to festive dressing, discover men's wear made for workdays, weekends and everything in between.
+            </p>
 
-        {/* Center & Right Visual Collage */}
-        <div className="c2-hero-visual-grid">
-          {/* Main Tall Center Image */}
-          <div className="c2-hero-card c2-hero-card-main">
-            <img
-              src={getAssetPath('/assets/concept-2/hero-main-wide-final.jpg')}
-              alt="Laxmikrupa Men's Wear - Contemporary Everyday Collection"
-              loading="eager"
-            />
-          </div>
-
-          {/* Right Visual Stack */}
-          <div className="c2-hero-right-stack">
-            {/* Top Right Card: Festive Moments */}
-            <div
-              className="c2-hero-card c2-hero-card-top"
-              onClick={() => handleScrollTo('festive-edit')}
-            >
-              <img
-                src={getAssetPath('/assets/concept-2/hero-festive.jpg')}
-                alt="Festive Moments - Handcrafted Kurta"
-              />
-              <div className="c2-hero-card-overlay">
-                <span>Festive Moments</span>
-                <ArrowRight size={14} weight="bold" />
-              </div>
-            </div>
-
-            {/* Bottom Split Row */}
-            <div className="c2-hero-bottom-split">
-              {/* Everyday Essentials */}
-              <div
-                className="c2-hero-card c2-hero-card-split"
+            <div className="c2-hero-ctas">
+              <button
+                type="button"
+                className="c2-btn-dark"
                 onClick={() => handleScrollTo('new-arrivals')}
               >
-                <img
-                  src={getAssetPath('/assets/concept-2/hero-everyday.jpg')}
-                  alt="Everyday Essentials"
-                />
-                <div className="c2-hero-card-overlay">
-                  <span>Everyday Essentials</span>
-                  <ArrowRight size={13} weight="bold" />
-                </div>
-              </div>
+                <span>Shop Men's Wear</span>
+                <ArrowUpRight size={16} weight="bold" />
+              </button>
 
-              {/* Casual Comfort (Jeans/Denim) */}
-              <div
-                className="c2-hero-card c2-hero-card-split"
+              <button
+                type="button"
+                className="c2-btn-outline"
                 onClick={() => handleScrollTo('categories')}
               >
-                <img
-                  src={getAssetPath('/assets/concept-2/hero-casual.jpg')}
-                  alt="Casual Comfort Denim and Trousers"
-                />
-                <div className="c2-hero-card-overlay">
-                  <span>Casual Comfort</span>
-                  <ArrowRight size={13} weight="bold" />
-                </div>
-              </div>
+                <span>Explore Collections</span>
+              </button>
             </div>
-          </div>
 
-          {/* Far Right Calligraphic Editorial Accent */}
-          <div className="c2-hero-editorial-accent">
-            <div className="c2-accent-serif">
-              <span>More</span>
-              <span>than just</span>
-              <span>clothing.</span>
-            </div>
-            <div className="c2-accent-script">
-              It's a feeling.
+            <div className="c2-hero-features-row">
+              <div className="c2-hero-feature-item">
+                <strong>EVERYDAY</strong>
+                <span>ESSENTIALS</span>
+              </div>
+              <div className="c2-hero-feature-divider" />
+              <div className="c2-hero-feature-item">
+                <strong>FESTIVE</strong>
+                <span>COLLECTIONS</span>
+              </div>
+              <div className="c2-hero-feature-divider" />
+              <div className="c2-hero-feature-item">
+                <strong>GROUP &amp; BULK</strong>
+                <span>ORDERS</span>
+              </div>
             </div>
           </div>
         </div>
