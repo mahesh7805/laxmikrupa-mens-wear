@@ -52,18 +52,10 @@ export function Hero({ onExploreClick, onShopClick }) {
               <button
                 type="button"
                 className="c2-btn-dark"
-                onClick={() => handleScrollTo('new-arrivals')}
-              >
-                <span>Shop Men's Wear</span>
-                <ArrowRight size={15} weight="bold" />
-              </button>
-
-              <button
-                type="button"
-                className="c2-btn-outline"
                 onClick={() => handleScrollTo('categories')}
               >
                 <span>Explore Collections</span>
+                <ArrowRight size={15} weight="bold" />
               </button>
             </div>
 
