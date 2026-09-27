@@ -1,16 +1,8 @@
 import React from 'react';
-import { ArrowRight } from '@phosphor-icons/react';
 import { getAssetPath } from '../../../../utils/assetPath';
 import './whoWeAre.css';
 
 export function WhoWeAre() {
-  const handleScrollToStore = () => {
-    const el = document.getElementById('store-locator');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="who-we-are" className="c2-who-section">
       <div className="concept2-container c2-who-container">
@@ -24,15 +16,6 @@ export function WhoWeAre() {
           <p className="c2-who-text">
             Laxmikrupa Men's Wear is a Surat-based brand that believes in timeless style, quality fabrics and honest service. We curate men's fashion that blends tradition with modern trends, so you always look and feel your best.
           </p>
-
-          <button
-            type="button"
-            className="c2-btn-outline"
-            onClick={handleScrollToStore}
-          >
-            <span>Our Story</span>
-            <ArrowRight size={15} weight="bold" />
-          </button>
         </div>
 
         {/* Right Column: Visual Collage & Heritage Script */}
