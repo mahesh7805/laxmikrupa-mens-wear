@@ -4,6 +4,7 @@ import './quickView.css';
 
 export function QuickViewModal({
   product,
+  initialColorIndex = 0,
   onClose,
   isWishlisted,
   onToggleWishlist,
@@ -12,12 +13,22 @@ export function QuickViewModal({
   if (!product) return null;
 
   const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] || '38');
-  const [selectedColor, setSelectedColor] = useState(0);
+  const [selectedColor, setSelectedColor] = useState(initialColorIndex);
   const [added, setAdded] = useState(false);
+
+  const activeColor = product.colors?.[selectedColor];
+  const activeImage = activeColor?.image || product.image;
 
   const handleAdd = () => {
     if (onAddToCart) {
-      onAddToCart(product, selectedSize, product.colors?.[selectedColor]?.name);
+      onAddToCart(
+        {
+          ...product,
+          image: activeImage,
+        },
+        selectedSize,
+        product.colors?.[selectedColor]?.name
+      );
     }
     setAdded(true);
     setTimeout(() => {
@@ -40,7 +51,11 @@ export function QuickViewModal({
         <div className="c2-quickview-grid">
           {/* Product Image */}
           <div className="c2-quickview-image-wrap">
-            <img src={product.image} alt={product.name} />
+            <img
+              key={`${product.id}-${selectedColor}`}
+              src={activeImage}
+              alt={`${product.name} - ${activeColor?.name || ''}`}
+            />
           </div>
 
           {/* Product Details */}

@@ -32,6 +32,7 @@ export function Concept2App() {
   ]);
 
   const [activeQuickViewProduct, setActiveQuickViewProduct] = useState(null);
+  const [quickViewColorIdx, setQuickViewColorIdx] = useState(0);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleToggleWishlist = (productId) => {
@@ -108,7 +109,10 @@ export function Concept2App() {
         <NewArrivals
           wishlist={wishlist}
           onToggleWishlist={handleToggleWishlist}
-          onQuickView={(prod) => setActiveQuickViewProduct(prod)}
+          onQuickView={(prod, colorIdx = 0) => {
+            setActiveQuickViewProduct(prod);
+            setQuickViewColorIdx(colorIdx);
+          }}
           onAddToCart={handleAddToCart}
         />
 
@@ -129,6 +133,7 @@ export function Concept2App() {
       {activeQuickViewProduct && (
         <QuickViewModal
           product={activeQuickViewProduct}
+          initialColorIndex={quickViewColorIdx}
           onClose={() => setActiveQuickViewProduct(null)}
           isWishlisted={wishlist.includes(activeQuickViewProduct.id)}
           onToggleWishlist={handleToggleWishlist}

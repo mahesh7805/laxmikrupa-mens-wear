@@ -43,12 +43,20 @@ export function NewArrivals({
           {CONCEPT2_PRODUCTS.map((prod) => {
             const isWishlisted = wishlist.includes(prod.id);
             const activeColorIdx = selectedColors[prod.id] || 0;
+            const activeColor = prod.colors?.[activeColorIdx];
+            const currentImage = activeColor?.image || prod.image;
 
             return (
               <div key={prod.id} className="c2-product-card">
                 {/* Image Container with Wishlist Icon */}
                 <div className="c2-product-image-wrap">
-                  <img src={prod.image} alt={prod.name} loading="lazy" />
+                  <img
+                    key={`${prod.id}-${activeColorIdx}`}
+                    src={currentImage}
+                    alt={`${prod.name} - ${activeColor?.name || ''}`}
+                    loading="lazy"
+                    className="c2-product-img"
+                  />
 
                   <button
                     type="button"
@@ -87,7 +95,7 @@ export function NewArrivals({
                   <button
                     type="button"
                     className="c2-quick-view-btn"
-                    onClick={() => onQuickView && onQuickView(prod)}
+                    onClick={() => onQuickView && onQuickView(prod, activeColorIdx)}
                   >
                     Quick View
                   </button>
